@@ -116,6 +116,32 @@
       #print-area { color: #000 !important; }
       #print-area * { color: #000 !important; border-color: #ccc !important; background: #fff !important; }
     }
+
+    /* ---- Chapter content classes (used in content/chXX.js) ---- */
+    .ch-h3 { font-family: 'Playfair Display', serif; font-size: 1.15rem; margin-top: 1.75rem; margin-bottom: 0.5rem; color: #EAB308; }
+    .ch-p { margin-top: 1rem; }
+    .ch-accent { color: #EAB308; font-style: italic; }
+    .ch-muted { margin-top: 1rem; color: #6b7280; font-size: 0.875rem; }
+    .ch-quote { border-left: 3px solid #4b5563; padding-left: 1rem; margin: 1.25rem 0; color: #9ca3af; font-style: italic; font-size: 0.9rem; }
+    .ch-quote.accent { border-left-color: #EAB308; color: #d1d5db; }
+    .ch-quote small { font-style: normal; color: #6b7280; }
+    .ch-fact-list { list-style: disc; padding-left: 1.5rem; line-height: 2; color: #d1d5db; }
+    .ch-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem; margin: 1rem 0; }
+    .ch-card { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.18); border-radius: 6px; padding: 0.65rem 0.8rem; font-size: 0.82rem; color: #d1d5db; line-height: 1.5; }
+    .ch-card small { color: #6b7280; }
+    .ch-person-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin: 1.25rem 0; }
+    .ch-person { background: rgba(234,179,8,0.06); border: 1px solid rgba(234,179,8,0.18); border-radius: 6px; padding: 0.875rem; }
+    .ch-person strong { color: #EAB308; display: block; margin-bottom: 0.35rem; font-size: 1rem; }
+    .ch-person p { font-size: 0.8rem; color: #d1d5db; line-height: 1.5; margin: 0; }
+    .ch-names-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 8px; padding: 1.25rem; margin-top: 1.25rem; }
+    .ch-names-box p { margin-bottom: 0.5rem; }
+    .ch-names-label { font-size: 0.8rem; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem !important; }
+    .ch-names-box strong { color: #EAB308; }
+    .ch-names-footer { margin-top: 0.75rem !important; color: #4b5563; font-size: 0.8rem; }
+    .ch-highlight-box { background: rgba(234,179,8,0.07); border: 1px solid rgba(234,179,8,0.25); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; line-height: 1.7; }
+    .ch-legal-list { list-style: none; padding: 0; line-height: 1.9; }
+    .ch-legal-list li { padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .ch-legal-list li:last-child { border-bottom: none; }
   </style>
 </head>
 <body>
@@ -134,42 +160,25 @@
   <div id="sidebar-overlay" onclick="closeSidebar()"></div>
   <main id="main" style="min-height:calc(100vh - 60px)"></main>
 
-  <script>
-  // ===================== DATA =====================
-  const QUIZ = [
-    {
-      q: "Přibližně kolik lidí bylo během Akce T4 zavražděno?",
-      opts: ["Desítky tisíc", "Stovky až tisíce", "Stovky tisíc"],
-      correct: 2,
-      expl: "Odhaduje se, že bylo zavražděno 200 000 až 300 000 osob. Program byl rozsáhlejší, než se dlouho veřejně uznávalo."
-    },
-    {
-      q: `Proč se program nazýval „T4"?`,
-      opts: ["Podle vojenské jednotky", "Podle adresy řídící kanceláře v Berlíně (Tiergartenstraße 4)", "Podle typu plynu používaného při vraždění", "Podle názvu nemocnice"],
-      correct: 1,
-      expl: "Název pochází od adresy koordinačního centra – Tiergartenstraße 4 v Berlíně, odkud byl celý program řízen."
-    },
-    {
-      q: "Co vedlo k oficiálnímu ukončení Akce T4 v roce 1941?",
-      opts: ["Nedostatek financí", "Protesty veřejnosti a církve", "Porážka Německa ve válce", "Rozhodnutí OSN"],
-      correct: 1,
-      expl: "Narůstající odpor veřejnosti a zejména kázání biskupa Clemense von Galena přinutily nacistický režim program formálně zastavit – byť vraždění tajně pokračovalo dál."
-    },
-    {
-      q: "Ve kterém roce byla Akce T4 oficiálně zahájena?",
-      opts: ["1933", "1939", "1941", "1943"],
-      correct: 1,
-      expl: "Program byl zahájen v roce 1939. Hitlerův rozkaz byl záměrně antedatován na 1. září – den začátku druhé světové války."
-    },
-    {
-      q: "Jaký byl vztah mezi Akcí T4 a pozdějším holocaustem?",
-      opts: ["Neměly spolu žádnou souvislost", "Akce T4 poskytla zkušenosti s technikami masového zabíjení", "Akce T4 začala až po holocaustu"],
-      correct: 1,
-      expl: "Pracovníci z programu T4 a jejich metody (plynové komory, organizace transportů) byly přímo přeneseny do vyhlazovacích táborů Operace Reinhard."
-    }
-  ];
+  <!-- Content files – edit these to change chapter text -->
+  <script src="content/quiz.js"></script>
+  <script src="content/ch01.js"></script>
+  <script src="content/ch02.js"></script>
+  <script src="content/ch03.js"></script>
+  <script src="content/ch04.js"></script>
+  <script src="content/ch05.js"></script>
+  <script src="content/ch06.js"></script>
+  <script src="content/ch07.js"></script>
 
-  const CHAPTERS = [
+  <script>
+  // ===================== DATA (loaded from content/ files) =====================
+  const QUIZ = window.QUIZ_DATA;
+  const CHAPTERS = window.CHAPTERS_DATA;
+
+
+  // CHAPTERS is loaded from content/ch01.js … ch07.js via window.CHAPTERS_DATA
+  // (keeping old inline block only as fallback — remove after confirming content/ files work)
+  const _CHAPTERS_LEGACY = [
     {
       title: "Co je Akce T4?",
       subtitle: "Úvod do programu",
@@ -323,7 +332,7 @@
 <p style="margin-top:1rem;color:#6b7280;font-size:0.875rem">Přesto inkluze v praxi stále naráží na překážky – v přístupu ke vzdělání, zaměstnání, zdravotní péči i veřejnému životu.</p>`,
       noteQ: "Co pro vás osobně znamená symbol slunečnice a pojem neviditelného postižení? Jak můžete přispět k inkluzivnější a empatičtější společnosti ve svém každodenním životě?"
     }
-  ];
+  ]; // end _CHAPTERS_LEGACY
 
   // ===================== STATE =====================
   const state = {
@@ -348,21 +357,40 @@
 
   // ===================== NAVIGATION =====================
   function navigate(view) {
-    if ((view === 'brochure' || view === 'summary') && !state.quizDone) { state.view = 'quiz'; }
-    else { state.view = view; }
-    window.scrollTo(0,0);
-    render();
+    const needsQuiz = (view === 'brochure' || view === 'summary') && !state.quizDone;
+    window.location.hash = needsQuiz ? 'quiz' : view;
   }
 
   function setChapter(i) {
-    state.chapter = i;
-    closeSidebar();
-    renderChapter(i);
-    document.querySelectorAll('.chapter-nav-item').forEach((el, idx) => el.classList.toggle('active', idx === i));
-    const cc = document.getElementById('chapter-content');
-    if (cc) cc.scrollTop = 0;
-    window.scrollTo(0,0);
+    window.location.hash = 'brochure/' + i;
   }
+
+  function handleHash() {
+    const hash = window.location.hash.replace('#', '') || 'home';
+    const parts = hash.split('/');
+    const view = parts[0];
+    const param = parts[1];
+
+    if (view === 'brochure' || view === 'summary') {
+      if (!state.quizDone) { state.view = 'quiz'; render(); return; }
+    }
+
+    if (view === 'brochure') {
+      const ch = parseInt(param);
+      if (!isNaN(ch) && ch >= 0 && ch < CHAPTERS.length) state.chapter = ch;
+      state.view = 'brochure';
+      closeSidebar();
+    } else if (['home','quiz','summary','sources'].includes(view)) {
+      state.view = view;
+    } else {
+      state.view = 'home';
+    }
+
+    window.scrollTo(0, 0);
+    render();
+  }
+
+  window.addEventListener('hashchange', handleHash);
 
   function closeSidebar() {
     const sb = document.getElementById('sidebar');
@@ -628,7 +656,7 @@
 
   // ===================== INIT =====================
   loadState();
-  render();
+  handleHash(); // read URL hash on first load
   </script>
 </body>
 </html>
