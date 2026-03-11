@@ -13,7 +13,7 @@ window.QUIZ_DATA = [
     expl: "Odhaduje se, že bylo zavražděno 200 000 až 300 000 osob. Program byl rozsáhlejší, než se dlouho veřejně uznávalo."
   },
   {
-    q: "Proč se program nazýval „T4"?",
+    q: `Proč se program nazýval „T4"?`,
     opts: [
       "Podle vojenské jednotky",
       "Podle adresy řídící kanceláře v Berlíně (Tiergartenstraße 4)",
