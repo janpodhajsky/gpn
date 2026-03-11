@@ -2,7 +2,7 @@
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: "Co je Akce T4?",
+  title: "Co je Akce T4??",
   subtitle: "Úvod do programu",
   rights: [
     { label: "Právo na život", ref: "čl. 6 Listiny základních práv a svobod ČR" },
