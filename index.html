@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akce T4 – Nezapomenout a Porozumět</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { background: #0d0d0d; color: #e5e5e5; font-family: 'Inter', sans-serif; margin: 0; }
+    .serif { font-family: 'Playfair Display', serif; }
+
+    .nav-btn {
+      background: transparent; border: 1px solid transparent; border-radius: 6px;
+      padding: 0.35rem 0.85rem; color: #9ca3af; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: 0.875rem; transition: all 0.15s;
+    }
+    .nav-btn:hover { color: #e5e5e5; border-color: rgba(234,179,8,0.3); }
+    .nav-btn.active { color: #EAB308; border-color: #EAB308; background: rgba(234,179,8,0.08); }
+
+    .sunflower-btn {
+      cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(234,179,8,0.1); border: 1.5px solid #EAB308; border-radius: 50px;
+      padding: 0.6rem 1.4rem; color: #EAB308; font-size: 0.9rem; transition: all 0.2s;
+      position: relative; font-family: 'Inter', sans-serif;
+    }
+    .sunflower-btn:hover { background: rgba(234,179,8,0.2); }
+    .sunflower-btn .sf-icon { font-size: 1.4rem; transition: transform 0.4s ease; display: inline-block; }
+    .sunflower-btn:hover .sf-icon { transform: rotate(30deg); }
+    .sunflower-tip {
+      display: none; position: absolute; bottom: calc(100% + 10px); left: 50%; transform: translateX(-50%);
+      background: #1c1c1c; border: 1px solid #EAB308; border-radius: 8px; padding: 10px 14px;
+      width: 260px; font-size: 0.8rem; line-height: 1.5; z-index: 50; color: #d1d5db;
+      text-align: left; pointer-events: none;
+    }
+    .sunflower-btn:hover .sunflower-tip { display: block; }
+
+    .rights-box {
+      border-left: 3px solid #EAB308; background: rgba(234,179,8,0.07);
+      padding: 1rem 1.25rem; margin: 1.5rem 0; border-radius: 0 6px 6px 0;
+    }
+    .note-area {
+      background: rgba(255,255,255,0.04); border: 1.5px solid rgba(234,179,8,0.25);
+      border-radius: 6px; color: #e5e5e5; padding: 0.75rem 1rem; width: 100%;
+      resize: vertical; min-height: 90px; font-family: 'Inter', sans-serif;
+      font-size: 0.875rem; transition: border-color 0.2s; line-height: 1.5;
+    }
+    .note-area:focus { outline: none; border-color: #EAB308; }
+    .note-area::placeholder { color: #6b7280; }
+
+    .quiz-opt {
+      background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.12);
+      border-radius: 8px; padding: 0.875rem 1.25rem; cursor: pointer; transition: all 0.2s;
+      text-align: left; width: 100%; color: #e5e5e5; font-family: 'Inter', sans-serif; font-size: 0.9rem;
+    }
+    .quiz-opt:hover:not([disabled]) { background: rgba(234,179,8,0.1); border-color: #EAB308; }
+    .quiz-opt.correct { background: rgba(34,197,94,0.15) !important; border-color: #22c55e !important; color: #86efac !important; }
+    .quiz-opt.wrong { background: rgba(239,68,68,0.15) !important; border-color: #ef4444 !important; color: #fca5a5 !important; }
+    .quiz-opt[disabled] { cursor: default; }
+
+    .chapter-nav-item {
+      border-left: 2px solid transparent; padding: 0.4rem 0.75rem 0.4rem 1rem;
+      cursor: pointer; transition: all 0.2s; border-radius: 0 4px 4px 0;
+      color: #9ca3af; font-size: 0.82rem; line-height: 1.4;
+    }
+    .chapter-nav-item:hover { border-left-color: rgba(234,179,8,0.4); color: #d1d5db; background: rgba(255,255,255,0.03); }
+    .chapter-nav-item.active { border-left-color: #EAB308; color: #EAB308; background: rgba(234,179,8,0.07); font-weight: 500; }
+
+    .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 8px; background: #111; }
+    .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; border-radius: 8px; }
+
+    .fade-in { animation: fadeIn 0.35s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #1a1a1a; }
+    ::-webkit-scrollbar-thumb { background: #554800; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #EAB308; }
+
+    .btn-yellow {
+      background: #EAB308; color: #000; border: none; border-radius: 8px;
+      padding: 0.875rem 2rem; font-size: 1rem; font-weight: 600; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: background 0.2s;
+    }
+    .btn-yellow:hover { background: #ca9a06; }
+    .btn-outline {
+      background: transparent; color: #EAB308; border: 1.5px solid #EAB308;
+      border-radius: 8px; padding: 0.6rem 1.25rem; font-size: 0.875rem; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: all 0.2s;
+    }
+    .btn-outline:hover { background: rgba(234,179,8,0.1); }
+    .btn-ghost {
+      background: transparent; color: #6b7280; border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px; padding: 0.6rem 1.25rem; font-size: 0.875rem; cursor: pointer;
+      font-family: 'Inter', sans-serif; transition: color 0.2s;
+    }
+    .btn-ghost:hover { color: #e5e5e5; }
+
+    @media (max-width: 768px) {
+      #sidebar { display: none; }
+      #sidebar.open { display: block; position: fixed; top: 60px; left: 0; width: 260px; height: calc(100vh - 60px); z-index: 200; box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
+      #sidebar-overlay { display: none; position: fixed; inset: 0; top: 60px; background: rgba(0,0,0,0.6); z-index: 199; }
+      #sidebar-overlay.open { display: block; }
+      #mobile-chapter-bar { display: flex; }
+      #chapter-content { padding: 1.5rem 1rem !important; }
+    }
+    @media (min-width: 769px) {
+      #mobile-chapter-bar { display: none !important; }
+    }
+
+    @media print {
+      nav, #sidebar, .no-print, #mobile-chapter-bar { display: none !important; }
+      body { background: #fff !important; color: #000 !important; }
+      #print-area { color: #000 !important; }
+      #print-area * { color: #000 !important; border-color: #ccc !important; background: #fff !important; }
+    }
+  </style>
+</head>
+<body>
+  <nav style="background:#111;border-bottom:1px solid rgba(234,179,8,0.15);position:sticky;top:0;z-index:100">
+    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px">
+      <div class="serif" style="font-size:1.1rem;font-weight:700;color:#EAB308;letter-spacing:0.05em;cursor:pointer" onclick="navigate('home')">🌻 AKCE T4</div>
+      <div style="display:flex;gap:0.35rem">
+        <button class="nav-btn" onclick="navigate('home')" id="nav-home">Úvod</button>
+        <button class="nav-btn" onclick="navigate('brochure')" id="nav-brochure">Brožura</button>
+        <button class="nav-btn" onclick="navigate('summary')" id="nav-summary">Shrnutí</button>
+        <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
+      </div>
+    </div>
+  </nav>
+
+  <div id="sidebar-overlay" onclick="closeSidebar()"></div>
+  <main id="main" style="min-height:calc(100vh - 60px)"></main>
+
+  <script>
+  // ===================== DATA =====================
+  const QUIZ = [
+    {
+      q: "Přibližně kolik lidí bylo během Akce T4 zavražděno?",
+      opts: ["Desítky tisíc", "Stovky až tisíce", "Stovky tisíc"],
+      correct: 2,
+      expl: "Odhaduje se, že bylo zavražděno 200 000 až 300 000 osob. Program byl rozsáhlejší, než se dlouho veřejně uznávalo."
+    },
+    {
+      q: "Proč se program nazýval „T4"?",
+      opts: ["Podle vojenské jednotky", "Podle adresy řídící kanceláře v Berlíně (Tiergartenstraße 4)", "Podle typu plynu používaného při vraždění", "Podle názvu nemocnice"],
+      correct: 1,
+      expl: "Název pochází od adresy koordinačního centra – Tiergartenstraße 4 v Berlíně, odkud byl celý program řízen."
+    },
+    {
+      q: "Co vedlo k oficiálnímu ukončení Akce T4 v roce 1941?",
+      opts: ["Nedostatek financí", "Protesty veřejnosti a církve", "Porážka Německa ve válce", "Rozhodnutí OSN"],
+      correct: 1,
+      expl: "Narůstající odpor veřejnosti a zejména kázání biskupa Clemense von Galena přinutily nacistický režim program formálně zastavit – byť vraždění tajně pokračovalo dál."
+    },
+    {
+      q: "Ve kterém roce byla Akce T4 oficiálně zahájena?",
+      opts: ["1933", "1939", "1941", "1943"],
+      correct: 1,
+      expl: "Program byl zahájen v roce 1939. Hitlerův rozkaz byl záměrně antedatován na 1. září – den začátku druhé světové války."
+    },
+    {
+      q: "Jaký byl vztah mezi Akcí T4 a pozdějším holocaustem?",
+      opts: ["Neměly spolu žádnou souvislost", "Akce T4 poskytla zkušenosti s technikami masového zabíjení", "Akce T4 začala až po holocaustu"],
+      correct: 1,
+      expl: "Pracovníci z programu T4 a jejich metody (plynové komory, organizace transportů) byly přímo přeneseny do vyhlazovacích táborů Operace Reinhard."
+    }
+  ];
+
+  const CHAPTERS = [
+    {
+      title: "Co je Akce T4?",
+      subtitle: "Úvod do programu",
+      rights: [
+        { label: "Právo na život", ref: "čl. 6 Listiny základních práv a svobod ČR" },
+        { label: "Lidská důstojnost a právo na ochranu dobré pověsti", ref: "čl. 10 LZPS ČR / čl. 1 Listiny EU" }
+      ],
+      video: null,
+      content: `<p>Akce T4 (německy <em>Aktion T4</em>) byl tajný nacistický program eutanázie, realizovaný v Německu v letech 1939–1941, který se poté transformoval do skryté formy pokračující až do konce druhé světové války.</p>
+<p style="margin-top:1rem">Název pochází od adresy koordinačního centra – <strong style="color:#EAB308">Tiergartenstraße 4</strong> v Berlíně, odkud byl celý program řízen.</p>
+<p style="margin-top:1rem">Cílem programu bylo systematicky usmrtit osoby, které nacistická ideologie označovala jako <em>„unwertes Leben"</em> – „život hodný záhuby". Jednalo se především o osoby s mentálním nebo fyzickým postižením, psychiatrickými diagnózami nebo chronickými nemocemi, které nacisté považovali za „zátěž pro společnost".</p>
+<p style="margin-top:1rem">Program nebyl spontánní akcí – byl pečlivě organizovanou státní operací, na níž se podíleli lékaři, správci nemocnic, úředníci i vědecké instituce. Přesto byl přísně utajován před veřejností.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Základní fakta</h3>
+<ul style="list-style:disc;padding-left:1.5rem;line-height:2;color:#d1d5db">
+  <li>Zahájen: <strong>1939</strong></li>
+  <li>Formálně zastaven: <strong>srpen 1941</strong> (tajně pokračoval do roku 1945)</li>
+  <li>Počet obětí: odhadovaných <strong>200 000–300 000</strong> osob</li>
+  <li>Koordinační centrum: Berlín, Tiergartenstraße 4</li>
+  <li>Součást nacistické politiky eugeniky a rasové „hygieny"</li>
+</ul>`,
+      noteQ: "Jak byste vlastními slovy vysvětlili, co bylo cílem Akce T4? Co vás na zjištěných faktech nejvíce zaujalo nebo šokovalo?"
+    },
+    {
+      title: "Historické pozadí",
+      subtitle: "Cesta k programu",
+      rights: [
+        { label: "Nedotknutelnost osoby a její soukromí", ref: "čl. 7 LZPS ČR" },
+        { label: "Osobní svoboda", ref: "čl. 8 LZPS ČR" }
+      ],
+      video: null,
+      content: `<p>Kořeny programu T4 sahají do nacistické eugeniky a rasové <em>„hygieny"</em> (<em>Rassenhygiene</em>). Tyto pseudovědecké teorie pronikly do německé lékařské praxe a vzdělání již před Hitlerovým nástupem k moci.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Zákon o sterilizaci (1933)</h3>
+<p>Po Hitlerově nástupu k moci vstoupil v platnost zákon <em>„Gesetz zur Verhütung erbkranken Nachwuchses"</em> – zákon o prevenci dědičně nemocného potomstva. Na jeho základě bylo povinně sterilizováno přibližně <strong>400 000 osob</strong>. Zákon se vztahoval na osoby s diagnostikovanou schizofrenií, epilepsií, vrozenou mentální retardací, dědičnou hluchotou nebo slepotou a dalšími stavy.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Ideologický základ</h3>
+<p>Nacistická propaganda šířila představu, že „méněcenné" osoby oslabují „rasový organismus" německého národa. Pojmy jako <em>„balastní existence"</em> nebo <em>„žroutci prostředků"</em> se běžně objevovaly v tisku, filmech i školních učebnicích.</p>
+<p style="margin-top:1rem">V září 1939 Hitler podepsal tajný rozkaz zmocňující lékaře k udělení <strong>„milosrdné smrti"</strong> nevyléčitelně nemocným pacientům. Rozkaz byl záměrně antedatován na <strong>1. září 1939</strong> – den vypuknutí druhé světové války – aby bylo snazší ho odůvodnit válečnou nutností.</p>
+<blockquote style="border-left:3px solid #4b5563;padding-left:1rem;margin:1.25rem 0;color:#9ca3af;font-style:italic;font-size:0.9rem">
+  „Nacistická medicína nepadla z nebe. Byla výsledkem postupného posunu hranic etiky, kdy každý krok se zdál být jen malým a odůvodnitelným."<br>
+  <small style="font-style:normal;color:#6b7280">— Robert Jay Lifton, historik medicíny, <em>The Nazi Doctors</em>, 1986</small>
+</blockquote>`,
+      noteQ: "Jak mohla ideologie „rasové hygieny" proniknout do medicíny – profese, jejímž základním etickým závazkem je „neškodit"? Jakou roli hraje vzdělání a propaganda v utváření morálních hranic?"
+    },
+    {
+      title: "Průběh programu",
+      subtitle: "Metody a místa",
+      rights: [
+        { label: "Zákaz mučení a nelidského nebo ponižujícího zacházení", ref: "čl. 7 odst. 2 LZPS ČR / čl. 4 Listiny EU" },
+        { label: "Právo na život", ref: "čl. 2 Listiny základních práv EU" }
+      ],
+      video: { id: "16Rl4_Er-BGrfxfzZrRX4SnSUKciTMLSD", title: "Dokumentace a svědectví" },
+      content: `<p>Pacientům v různých psychiatrických ústavech byl zaslán registrační formulář (tzv. <em>Meldebögen</em>). Komise složená z lékařů – kteří pacienty <strong>nikdy osobně neviděli</strong> – rozhodla na základě formulářů o jejich osudu. Malá červená značka „<strong>+</strong>" znamenala smrt, modré „<strong>–</strong>" přežití. Každý lékař zpracoval denně desítky formulářů.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Šest center eutanázie</h3>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0.6rem;margin:1rem 0">
+  ${['Bernburg<br><small style="color:#6b7280">Sasko-Anhaltsko</small>','Brandenburg a. d. H.<br><small style="color:#6b7280">Braniborsko</small>','Grafeneck<br><small style="color:#6b7280">Bádensko-Württembersko</small>','Hartheim<br><small style="color:#6b7280">Horní Rakousy</small>','Hadamar<br><small style="color:#6b7280">Hesensko</small>','Sonnenstein<br><small style="color:#6b7280">Sasko</small>'].map(c=>`<div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.18);border-radius:6px;padding:0.65rem 0.8rem;font-size:0.82rem;color:#d1d5db;line-height:1.5">${c}</div>`).join('')}
+</div>
+<p>V těchto zařízeních byli pacienti usmrcováni <strong>kysličníkem uhelnatým</strong> v plynových komorách maskovaných jako sprchové místnosti – přímý předchůdce technologie použité v holocaustu.</p>
+<p style="margin-top:1rem">Rodinám byly odesílány <strong>falešné dopisy</strong> s vymyšlenými příčinami úmrtí (zápal plic, srdeční selhání) a nepravdivými daty. Urny vracené příbuzným mnohdy obsahovaly anonymní popel z krematoria.</p>`,
+      noteQ: "Jakou roli hrála anonymita (lékař nikdy pacienta neviděl, rozhodoval jen z papíru) v tomto procesu? Jak ovlivňuje anonymita morální rozhodování obecně? Znáte příklady z dnešní doby?"
+    },
+    {
+      title: "Oběti programu",
+      subtitle: "Tváře a příběhy",
+      rights: [
+        { label: "Právo na ochranu zdraví", ref: "čl. 31 LZPS ČR" },
+        { label: "Lidská důstojnost a právo na tělesnou a duševní integritu", ref: "čl. 1 LZPS ČR / čl. 3 Listiny EU" }
+      ],
+      video: null,
+      content: `<p>Odhaduje se, že bylo zavražděno <strong>200 000 až 300 000 osob</strong>. Oběti byly lidé všech věkových skupin – od novorozenců po seniory. Jejich „vinou" byla diagnóza.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Kdo byli oběti</h3>
+<p>Program cílil na osoby s diagnostikovanou schizofrenií, epilepsií, demencí, mentálním postižením, mozkovou obrnou, ale i na pacienty s tuberkulózou nebo alkoholismem. Mezi oběťmi byli také <strong>váleční veteráni</strong> z první světové války trpící posttraumatickým stresem – ti samí muži, kteří kdysi bojovali za Německo.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Dětský program</h3>
+<p>Součástí T4 byl i <em>Kinderaktion</em> – program cílený na děti. Lékaři a porodní asistenti byli povinni hlásit novorozence s postižením. Děti poté umíraly v „léčebných odděleních" hladem nebo předávkováním – pod záminkou zvláštní léčby.</p>
+<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:8px;padding:1.25rem;margin-top:1.25rem">
+  <p style="color:#6b7280;font-size:0.8rem;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">Připomínáme jména</p>
+  <p style="margin-bottom:0.5rem"><strong style="color:#EAB308">Ernst Lossa</strong> <span style="color:#6b7280;font-size:0.8rem">— nar. 1929, zavražděn 1944 ve věku 13 let v ústavu Kaufbeuren-Irsee</span></p>
+  <p style="margin-bottom:0.5rem"><strong style="color:#EAB308">Elvira Manthey</strong> <span style="color:#6b7280;font-size:0.8rem">— zavražděna ve věku 7 let</span></p>
+  <p style="margin-bottom:0.5rem"><strong style="color:#EAB308">Richard Jenne</strong> <span style="color:#6b7280;font-size:0.8rem">— poslední dokumentovaná oběť dětského programu, zemřel 29. května 1945 — sedm týdnů po kapitulaci Německa</span></p>
+  <p style="margin-top:0.75rem;color:#4b5563;font-size:0.8rem">…a stovky tisíc dalších, jejichž jména neznáme.</p>
+</div>`,
+      noteQ: "Jak si připomínáme nebo jak bychom si měli připomínat oběti, jejichž jména neznáme? Napište myšlenku na jejich památku."
+    },
+    {
+      title: "Konec programu a jeho odkaz",
+      subtitle: "Protesty, ukončení, pokračování",
+      rights: [
+        { label: "Svoboda projevu a právo na informace", ref: "čl. 17 LZPS ČR / čl. 11 Listiny EU" },
+        { label: "Svoboda myšlení, svědomí a náboženského vyznání", ref: "čl. 15 LZPS ČR / čl. 10 Listiny EU" }
+      ],
+      video: null,
+      content: `<p>Odpor vůči programu T4 postupně narůstal navzdory přísné cenzuře. Rodiny začínaly tušit pravdu – zvláště když dostávaly falešné dopisy s protichůdnými informacemi nebo když příčina smrti neodpovídala zdravotnímu stavu příbuzného.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Biskup von Galen</h3>
+<p>Klíčovou roli sehrál katolický biskup <strong>Clemens August Graf von Galen</strong>, který v srpnu 1941 veřejně odsoudil program T4. Jeho kázání se šířila v opisech po celém Německu a nacistický režim se obával ještě většího odporu.</p>
+<blockquote style="border-left:3px solid #EAB308;padding-left:1rem;margin:1.25rem 0;color:#d1d5db;font-style:italic;font-size:0.9rem">
+  „Kdokoliv vezme si za právo zabíjet nevinné, nevyléčitelně nemocné lidi, pak může také zabít nás starší, kteří jsme na obtíž… pak může zabít každého z nás."<br>
+  <small style="font-style:normal;color:#9ca3af">— Biskup Clemens von Galen, 3. srpna 1941</small>
+</blockquote>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Formální zastavení a jeho meze</h3>
+<p>V srpnu 1941 Hitler program formálně zastavil. Nicméně vraždění pokračovalo decentralizovaně – tzv. <strong>„divoká eutanázie"</strong>: pacienti umírali hladem, předávkováním nebo záměrným zanedbáváním péče. Odhaduje se, že takto zahynulo dalších <strong>100 000–200 000 osob</strong> do konce války.</p>
+<p style="margin-top:1rem">Na <strong>Norimberských procesech lékařů</strong> (1946–1947) bylo odsouzeno k trestu smrti sedm osob. Většina organizátorů programu T4 však unikla spravedlnosti.</p>`,
+      noteQ: "Proč si myslíte, že veřejný odpor (kázání biskupa, protesty rodin) mohl program alespoň formálně zastavit? Co z toho plyne pro roli jednotlivce a občanské společnosti dnes?"
+    },
+    {
+      title: "Propojení s holocaustem",
+      subtitle: "Akce T4 jako pilotní projekt",
+      rights: [
+        { label: "Zákaz diskriminace", ref: "čl. 3 LZPS ČR / čl. 21 Listiny základních práv EU" },
+        { label: "Lidská důstojnost", ref: "čl. 1 Listiny základních práv EU" }
+      ],
+      video: { id: "1UGzdkMdhldgiN1BooC5kLuTgYB3V-woA", title: "Historický kontext a svědectví" },
+      content: `<p>Program T4 byl přímým předchůdcem holocaustu. Pracovníci, kteří v T4 získali zkušenosti s organizací masového zabíjení, byli v roce 1942 systematicky převedeni do <strong>Operace Reinhard</strong> – nacistického plánu na vyvraždění Židů v generálním gouvernementu.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Přímá linie</h3>
+<p>Zaměstnanci T4 stáli u vzniku a provozu vyhlazovacích táborů <strong>Belzec, Sobibor a Treblinka</strong>. Plynové komory, technologie i personál byly přímo přeneseny z T4.</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0.75rem;margin:1.25rem 0">
+  <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.18);border-radius:6px;padding:0.875rem">
+    <p style="color:#EAB308;font-weight:600;margin-bottom:0.35rem">Franz Stangl</p>
+    <p style="font-size:0.8rem;color:#d1d5db;line-height:1.5">Vedl centrum T4 v Hartheim. Poté velitel Sobiboru a Treblinky.</p>
+  </div>
+  <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.18);border-radius:6px;padding:0.875rem">
+    <p style="color:#EAB308;font-weight:600;margin-bottom:0.35rem">Irmfried Eberl</p>
+    <p style="font-size:0.8rem;color:#d1d5db;line-height:1.5">Lékař v programu T4. Poté první velitel vyhlazovacího tábora Treblinka.</p>
+  </div>
+  <div style="background:rgba(234,179,8,0.06);border:1px solid rgba(234,179,8,0.18);border-radius:6px;padding:0.875rem">
+    <p style="color:#EAB308;font-weight:600;margin-bottom:0.35rem">Christian Wirth</p>
+    <p style="font-size:0.8rem;color:#d1d5db;line-height:1.5">Inspektor center T4. Poté velitel Belzecu a inspektor všech táborů Operace Reinhard.</p>
+  </div>
+</div>
+<p>Historici nazývají T4 <strong>„zkouškou generální"</strong> (<em>rehearsal</em>) nebo pilotním projektem holocaustu. Porozumění T4 je proto nezbytné pro pochopení toho, jak se mohl holocaust stát.</p>`,
+      noteQ: "Jak se vzorce dehumanizace, byrokracie zla a přenosu zkušeností pachatelů mohou opakovat v jiných historických nebo současných situacích? Co může společnost udělat, aby jim předcházela?"
+    },
+    {
+      title: "Dnešní perspektiva",
+      subtitle: "Lidská práva a symbol slunečnice",
+      rights: [
+        { label: "Rovnost v důstojnosti a právech", ref: "čl. 1 LZPS ČR / čl. 20 Listiny základních práv EU" },
+        { label: "Integrace osob se zdravotním postižením", ref: "čl. 26 Listiny základních práv EU / Úmluva OSN CRPD (2006)" }
+      ],
+      video: null,
+      content: `<p>Připomínka programu T4 není pouze historická lekce – je výzvou pro přítomnost. Osoby se zdravotním postižením čelí diskriminaci a neporozumění i dnes, přestože jejich práva jsou právně chráněna.</p>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">🌻 Symbol slunečnice</h3>
+<div style="background:rgba(234,179,8,0.07);border:1px solid rgba(234,179,8,0.25);border-radius:8px;padding:1.25rem;margin:1rem 0;line-height:1.7">
+  <p>Symbol slunečnice byl v roce <strong>2016</strong> zaveden Mezinárodním letištěm v Southamptonu jako identifikátor pro osoby s <strong>neviditelným postižením</strong>.</p>
+  <p style="margin-top:0.75rem">Neviditelná postižení zahrnují: autismus, ADHD, Crohnovu nemoc, fibromyalgii, chronické bolesti, srdeční choroby, psychická onemocnění, epilepsii a mnoho dalšího.</p>
+  <p style="margin-top:0.75rem;color:#EAB308;font-style:italic">„Mohu potřebovat pomoc, trpělivost nebo pochopení, i když to na mně není vidět."</p>
+</div>
+<h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;margin-top:1.75rem;margin-bottom:0.5rem;color:#EAB308">Právní ochrana dnes</h3>
+<ul style="list-style:none;padding:0;line-height:1.9">
+  <li style="padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)">📜 <strong>Listina základních práv a svobod ČR</strong> — čl. 1, 3, 6, 7, 10, 31</li>
+  <li style="padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.05)">🇪🇺 <strong>Listina základních práv EU</strong> — čl. 1, 20, 21, 26</li>
+  <li style="padding:0.4rem 0">🌍 <strong>Úmluva OSN o právech osob se zdravotním postižením (CRPD)</strong> — přijata 2006, ratifikována ČR 2009</li>
+</ul>
+<p style="margin-top:1rem;color:#6b7280;font-size:0.875rem">Přesto inkluze v praxi stále naráží na překážky – v přístupu ke vzdělání, zaměstnání, zdravotní péči i veřejnému životu.</p>`,
+      noteQ: "Co pro vás osobně znamená symbol slunečnice a pojem neviditelného postižení? Jak můžete přispět k inkluzivnější a empatičtější společnosti ve svém každodenním životě?"
+    }
+  ];
+
+  // ===================== STATE =====================
+  const state = {
+    view: 'home',
+    quizQ: 0,
+    quizAnswered: Array(5).fill(null),
+    quizDone: false,
+    chapter: 0,
+    notes: {}
+  };
+
+  function loadState() {
+    try { const n = localStorage.getItem('t4-notes'); if (n) state.notes = JSON.parse(n); } catch(e) {}
+    if (localStorage.getItem('t4-quizdone') === 'true') state.quizDone = true;
+    try { const qa = localStorage.getItem('t4-quizanswered'); if (qa) state.quizAnswered = JSON.parse(qa); } catch(e) {}
+  }
+
+  function saveNote(id) {
+    const el = document.getElementById('note-' + id);
+    if (el) { state.notes[id] = el.value; localStorage.setItem('t4-notes', JSON.stringify(state.notes)); }
+  }
+
+  // ===================== NAVIGATION =====================
+  function navigate(view) {
+    if ((view === 'brochure' || view === 'summary') && !state.quizDone) { state.view = 'quiz'; }
+    else { state.view = view; }
+    window.scrollTo(0,0);
+    render();
+  }
+
+  function setChapter(i) {
+    state.chapter = i;
+    closeSidebar();
+    renderChapter(i);
+    document.querySelectorAll('.chapter-nav-item').forEach((el, idx) => el.classList.toggle('active', idx === i));
+    const cc = document.getElementById('chapter-content');
+    if (cc) cc.scrollTop = 0;
+    window.scrollTo(0,0);
+  }
+
+  function closeSidebar() {
+    const sb = document.getElementById('sidebar');
+    const ov = document.getElementById('sidebar-overlay');
+    if (sb) sb.classList.remove('open');
+    if (ov) ov.classList.remove('open');
+  }
+
+  function toggleSidebar() {
+    const sb = document.getElementById('sidebar');
+    const ov = document.getElementById('sidebar-overlay');
+    if (sb) sb.classList.toggle('open');
+    if (ov) ov.classList.toggle('open');
+  }
+
+  // ===================== RENDER =====================
+  function render() {
+    ['home','brochure','summary','sources'].forEach(v => {
+      const el = document.getElementById('nav-' + v);
+      if (el) el.classList.toggle('active', state.view === v);
+    });
+    const main = document.getElementById('main');
+    if (state.view === 'home') renderHome(main);
+    else if (state.view === 'quiz') renderQuiz(main);
+    else if (state.view === 'brochure') renderBrochure(main);
+    else if (state.view === 'summary') renderSummary(main);
+    else if (state.view === 'sources') renderSources(main);
+  }
+
+  // HOME
+  function renderHome(main) {
+    main.innerHTML = `<div class="fade-in" style="max-width:900px;margin:0 auto;padding:4rem 1.5rem 6rem">
+      <div style="text-align:center;padding-bottom:3rem">
+        <div style="font-size:3.5rem;margin-bottom:1.5rem">🌻</div>
+        <h1 class="serif" style="font-size:clamp(2rem,6vw,3.8rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:1.5rem">NEZAPOMENOUT,<br><span style="color:#EAB308">POROZUMĚT</span></h1>
+        <p style="font-size:1rem;line-height:1.75;max-width:660px;margin:0 auto 2.5rem;color:#9ca3af">Práce je věnována obětem nacistického programu <strong style="color:#d1d5db">„Akce T4"</strong>, který cílil na vraždění duševně a tělesně postižených osob. Věnuje se i poválečné situaci a propojení s dnešní dobou.</p>
+        <div style="display:inline-block;background:rgba(234,179,8,0.08);border:1px solid rgba(234,179,8,0.25);border-radius:12px;padding:1.25rem 2rem;max-width:580px;margin-bottom:3rem">
+          <p style="color:#EAB308;font-weight:600;margin-bottom:0.4rem">📝 Jak začít</p>
+          <p style="color:#d1d5db;font-size:0.875rem;line-height:1.6">Jako první si vyplňte krátký úvodní kvíz. Nemá za cíl zkoušet vás z faktů – jeho smyslem je uvést vás do kontextu tématu.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center">
+          <button class="btn-yellow" onclick="navigate('quiz')">Začít úvodní kvíz →</button>
+          ${state.quizDone ? `<button class="btn-outline" onclick="navigate('brochure')">Přejít k brožuře →</button>` : ''}
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem">
+        ${[
+          {icon:'📚',title:'Interaktivní brožura',desc:'7 kapitol propojujících historii se současností a lidskými právy'},
+          {icon:'✍️',title:'Poznámky',desc:'Zapisujte si myšlenky a reflexe přímo v textu brožury'},
+          {icon:'📋',title:'Shrnutí',desc:'Vygenerujte přehled svých poznámek a vytiskněte nebo exportujte do PDF'},
+          {icon:'📎',title:'Zdroje',desc:'Ke stažení dostupné odborné dokumenty a doporučená literatura'},
+        ].map(c=>`<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem"><div style="font-size:1.75rem;margin-bottom:0.5rem">${c.icon}</div><p style="font-weight:600;color:#e5e5e5;margin-bottom:0.35rem">${c.title}</p><p style="font-size:0.8rem;color:#6b7280;line-height:1.5">${c.desc}</p></div>`).join('')}
+      </div>
+    </div>`;
+  }
+
+  // QUIZ
+  function renderQuiz(main) {
+    if (state.quizDone) {
+      main.innerHTML = `<div class="fade-in" style="max-width:680px;margin:0 auto;padding:4rem 1.5rem;text-align:center">
+        <div style="font-size:3rem;margin-bottom:1rem">✅</div>
+        <h2 class="serif" style="font-size:1.8rem;color:#EAB308;margin-bottom:1rem">Kvíz dokončen</h2>
+        <p style="color:#9ca3af;margin-bottom:2rem">Brožura je odemčena. Můžete pokračovat.</p>
+        <button class="btn-yellow" onclick="navigate('brochure')">Přejít k brožuře →</button>
+      </div>`;
+      return;
+    }
+    renderQuestion(main, state.quizQ);
+  }
+
+  function renderQuestion(main, qi) {
+    const q = QUIZ[qi];
+    main.innerHTML = `<div class="fade-in" style="max-width:680px;margin:0 auto;padding:3.5rem 1.5rem">
+      <div style="margin-bottom:2rem">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
+          <span style="font-size:0.75rem;color:#6b7280;text-transform:uppercase;letter-spacing:0.06em">Úvodní kvíz</span>
+          <span style="font-size:0.8rem;color:#9ca3af">Otázka ${qi+1} z ${QUIZ.length}</span>
+        </div>
+        <div style="background:#1f1f1f;border-radius:3px;height:4px">
+          <div style="background:#EAB308;height:4px;border-radius:3px;width:${(qi/QUIZ.length)*100}%;transition:width 0.4s"></div>
+        </div>
+      </div>
+      <h2 class="serif" style="font-size:1.45rem;line-height:1.4;color:#fff;margin-bottom:1.75rem">${q.q}</h2>
+      <div style="display:flex;flex-direction:column;gap:0.6rem" id="quiz-opts">
+        ${q.opts.map((opt,i)=>`<button class="quiz-opt" id="opt-${i}" onclick="selectAnswer(${qi},${i})">${opt}</button>`).join('')}
+      </div>
+      <div id="quiz-feedback" style="display:none;margin-top:1.5rem;padding:1rem 1.25rem;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid transparent"></div>
+      <div id="quiz-next" style="display:none;margin-top:1.5rem;text-align:right"></div>
+    </div>`;
+  }
+
+  function selectAnswer(qi, selected) {
+    const q = QUIZ[qi];
+    state.quizAnswered[qi] = selected;
+    localStorage.setItem('t4-quizanswered', JSON.stringify(state.quizAnswered));
+    document.querySelectorAll('.quiz-opt').forEach((btn,i) => {
+      btn.disabled = true;
+      if (i === q.correct) btn.classList.add('correct');
+      else if (i === selected && selected !== q.correct) btn.classList.add('wrong');
+    });
+    const isCorrect = selected === q.correct;
+    const fb = document.getElementById('quiz-feedback');
+    fb.style.display = 'block';
+    fb.style.borderColor = isCorrect ? '#22c55e' : '#ef4444';
+    fb.innerHTML = `<p style="font-weight:600;color:${isCorrect?'#86efac':'#fca5a5'};margin-bottom:0.5rem">${isCorrect?'✓ Správně!':'✗ Špatně'}</p><p style="color:#d1d5db;font-size:0.875rem;line-height:1.55">${q.expl}</p>`;
+    const nxt = document.getElementById('quiz-next');
+    nxt.style.display = 'block';
+    const isLast = qi === QUIZ.length - 1;
+    if (isLast) {
+      state.quizDone = true;
+      localStorage.setItem('t4-quizdone','true');
+      nxt.innerHTML = `<p style="color:#9ca3af;font-size:0.875rem;margin-bottom:1rem;text-align:center">Kvíz dokončen. Brožura je nyní odemčena.</p><div style="text-align:center"><button class="btn-yellow" onclick="navigate('brochure')">Otevřít brožuru →</button></div>`;
+    } else {
+      nxt.innerHTML = `<button class="btn-outline" onclick="goNext(${qi+1})">Další otázka →</button>`;
+    }
+  }
+
+  function goNext(qi) { state.quizQ = qi; renderQuestion(document.getElementById('main'), qi); }
+
+  // BROCHURE
+  function renderBrochure(main) {
+    main.innerHTML = `
+      <div id="mobile-chapter-bar" style="background:#111;border-bottom:1px solid rgba(255,255,255,0.06);padding:0.6rem 1rem;align-items:center;gap:0.75rem">
+        <button onclick="toggleSidebar()" style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);border-radius:6px;padding:0.4rem 0.75rem;color:#EAB308;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.8rem">☰ Kapitoly</button>
+        <span style="font-size:0.85rem;color:#9ca3af" id="mobile-ch-title">${CHAPTERS[state.chapter].title}</span>
+      </div>
+      <div style="display:flex;min-height:calc(100vh - 60px)">
+        <aside id="sidebar" style="width:240px;flex-shrink:0;background:#111;border-right:1px solid rgba(255,255,255,0.06);position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:1.25rem 0">
+          <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#4b5563;padding:0 1rem;margin-bottom:0.75rem">Kapitoly</p>
+          ${CHAPTERS.map((ch,i)=>`<div class="chapter-nav-item ${i===state.chapter?'active':''}" onclick="setChapter(${i})"><span style="font-size:0.72rem;color:#4b5563;margin-right:0.35rem">${i+1}.</span>${ch.title}</div>`).join('')}
+          <div style="margin-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06);padding-top:1.25rem">
+            <div class="chapter-nav-item" onclick="navigate('summary')" style="color:#6b7280">📋 Moje shrnutí</div>
+          </div>
+        </aside>
+        <div id="chapter-content" style="flex:1;overflow-y:auto;padding:2.5rem;max-width:800px"></div>
+      </div>`;
+    renderChapter(state.chapter);
+  }
+
+  function renderChapter(i) {
+    const ch = CHAPTERS[i];
+    const el = document.getElementById('chapter-content');
+    if (!el) return;
+    const noteId = 'ch' + i;
+    const saved = state.notes[noteId] || '';
+    const isLast = i === CHAPTERS.length - 1;
+    const useSunflower = i === 2 || i === 4;
+    const mt = document.getElementById('mobile-ch-title');
+    if (mt) mt.textContent = ch.title;
+
+    el.innerHTML = `<div class="fade-in">
+      <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:0.4rem">Kapitola ${i+1} z ${CHAPTERS.length}</p>
+      <h2 class="serif" style="font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:0.3rem">${ch.title}</h2>
+      <p style="color:#6b7280;font-size:0.875rem;margin-bottom:1.75rem">${ch.subtitle}</p>
+      <div class="rights-box">
+        <p style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;color:#ca9a06;font-weight:600;margin-bottom:0.5rem">⚖️ Porušená práva</p>
+        <p style="font-size:0.7rem;color:#4b5563;margin-bottom:0.5rem">Listina základních práv a svobod ČR a Listina základních práv EU</p>
+        ${ch.rights.map(r=>`<p style="font-size:0.85rem;color:#d1d5db;margin-bottom:0.2rem"><strong style="color:#EAB308">${r.label}</strong> <span style="color:#6b7280;font-size:0.78rem">— ${r.ref}</span></p>`).join('')}
+      </div>
+      <div style="line-height:1.8;font-size:0.92rem;color:#d1d5db">${ch.content}</div>
+      ${ch.video ? `<div style="margin:2rem 0">
+        <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">▶ Video</p>
+        <div class="video-wrap"><iframe src="https://drive.google.com/file/d/${ch.video.id}/preview" allow="autoplay" allowfullscreen loading="lazy" title="${ch.video.title}"></iframe></div>
+        <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">${ch.video.title}</p>
+      </div>` : ''}
+      <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)">
+        <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:#EAB308;font-weight:600;margin-bottom:0.4rem">✍️ Moje poznámky</p>
+        <p style="font-size:0.875rem;color:#9ca3af;margin-bottom:0.75rem;line-height:1.55">${ch.noteQ}</p>
+        <textarea id="note-${noteId}" class="note-area" placeholder="Zde napište své myšlenky…" oninput="saveNote('${noteId}')">${saved.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</textarea>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)">
+        <div>${i>0?`<button class="btn-ghost" onclick="setChapter(${i-1})">← Předchozí</button>`:'<div></div>'}</div>
+        <div>
+          ${isLast
+            ? `<button class="btn-yellow" onclick="navigate('summary')">Zobrazit shrnutí →</button>`
+            : useSunflower
+              ? `<button class="sunflower-btn" onclick="setChapter(${i+1})"><span class="sf-icon">🌻</span><span>Pokračovat</span><div class="sunflower-tip">Slunečnice je symbolem pro lidi s neviditelným postižením. Vyjadřuje potřebu pochopení a pomoci od okolí.</div></button>`
+              : `<button class="btn-outline" onclick="setChapter(${i+1})">Dále →</button>`
+          }
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // SUMMARY
+  function renderSummary(main) {
+    main.innerHTML = `<div class="fade-in" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem">
+        <div>
+          <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.3rem">Moje shrnutí</h2>
+          <p style="color:#6b7280;font-size:0.875rem">Vaše poznámky ze všech kapitol brožury</p>
+        </div>
+        <button class="btn-outline no-print" onclick="window.print()" style="display:flex;align-items:center;gap:0.5rem">🖨️ Tisk / Export PDF</button>
+      </div>
+      <div id="print-area">
+        ${CHAPTERS.map((ch,i)=>{
+          const note = state.notes['ch'+i]||'';
+          return `<div style="margin-bottom:1.5rem;padding:1.25rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px">
+            <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.3rem">Kapitola ${i+1}</p>
+            <h3 class="serif" style="font-size:1.05rem;color:#EAB308;margin-bottom:0.5rem">${ch.title}</h3>
+            <p style="font-size:0.8rem;color:#6b7280;line-height:1.5;margin-bottom:0.75rem;font-style:italic">${ch.noteQ}</p>
+            <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(234,179,8,0.2);border-radius:6px;padding:0.875rem;min-height:50px">
+              ${note ? `<p style="font-size:0.875rem;line-height:1.7;color:#e5e5e5;white-space:pre-wrap">${note.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>` : `<p style="color:#4b5563;font-size:0.875rem;font-style:italic">Žádná poznámka nebyla zapsána.</p>`}
+            </div>
+          </div>`;
+        }).join('')}
+      </div>
+      <div class="no-print" style="margin-top:2rem;text-align:center">
+        <button class="btn-ghost" onclick="navigate('brochure')">← Zpět do brožury</button>
+      </div>
+    </div>`;
+  }
+
+  // SOURCES
+  function renderSources(main) {
+    main.innerHTML = `<div class="fade-in" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem">
+      <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.4rem">Zdroje a dokumenty</h2>
+      <p style="color:#6b7280;font-size:0.875rem;margin-bottom:2.5rem">Odborné dokumenty, online zdroje a doporučená literatura</p>
+      <div style="display:flex;flex-direction:column;gap:1rem">
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem">
+          <div>
+            <p style="font-weight:500;color:#e5e5e5;margin-bottom:0.3rem">📄 Oběti T4 – Brožura</p>
+            <p style="font-size:0.8rem;color:#6b7280">Hlavní odborný dokument k programu Akce T4 (PDF, 48 stran, Canva)</p>
+          </div>
+          <a href="obeti_t4_brozura.pdf" download style="background:transparent;color:#EAB308;border:1.5px solid #EAB308;border-radius:7px;padding:0.5rem 1rem;font-size:0.8rem;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif">⬇ Stáhnout PDF</a>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
+          <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">🌐 Online zdroje</p>
+          <div style="display:flex;flex-direction:column;gap:0.6rem">
+            ${[
+              {name:'Holocaust Encyclopedia – Aktion T4 (anglicky)', url:'https://encyclopedia.ushmm.org/content/en/article/euthanasia-program'},
+              {name:'Sunflower Hidden Disabilities – symbol slunečnice', url:'https://hiddendisabilitiesstore.com/pages/about-us'},
+              {name:'Úmluva OSN o právech osob se zdravotním postižením (CRPD)', url:'https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities.html'},
+              {name:'Listina základních práv EU – EUR-Lex (česky)', url:'https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:12012P/TXT'},
+              {name:'Listina základních práv a svobod ČR – PSP', url:'https://www.psp.cz/docs/laws/listina.html'},
+            ].map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer" style="color:#6b7280;font-size:0.875rem;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04)" onmouseover="this.style.color='#EAB308'" onmouseout="this.style.color='#6b7280'">🔗 ${s.name}</a>`).join('')}
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
+          <p style="font-weight:500;color:#e5e5e5;margin-bottom:0.75rem">📚 Doporučená literatura</p>
+          <ul style="list-style:disc;padding-left:1.25rem;color:#6b7280;font-size:0.875rem;line-height:2">
+            <li><strong style="color:#d1d5db">Lifton, R. J.</strong> — The Nazi Doctors: Medical Killing and the Psychology of Genocide (1986)</li>
+            <li><strong style="color:#d1d5db">Burleigh, M.</strong> — Death and Deliverance: Euthanasia in Germany c. 1900–1945 (1994)</li>
+            <li><strong style="color:#d1d5db">Friedlander, H.</strong> — The Origins of Nazi Genocide: From Euthanasia to the Final Solution (1995)</li>
+            <li><strong style="color:#d1d5db">Arendt, H.</strong> — Eichmann v Jeruzalémě (česky dostupné)</li>
+          </ul>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // ===================== INIT =====================
+  loadState();
+  render();
+  </script>
+</body>
+</html>
