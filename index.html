@@ -448,13 +448,25 @@
   }
 
   // QUIZ
+  function resetQuiz() {
+    state.quizDone = false;
+    state.quizQ = 0;
+    state.quizAnswered = Array(QUIZ.length).fill(null);
+    localStorage.removeItem('t4-quizdone');
+    localStorage.removeItem('t4-quizanswered');
+    renderQuestion(document.getElementById('main'), 0);
+  }
+
   function renderQuiz(main) {
     if (state.quizDone) {
       main.innerHTML = `<div class="fade-in" style="max-width:680px;margin:0 auto;padding:4rem 1.5rem;text-align:center">
         <div style="font-size:3rem;margin-bottom:1rem">✅</div>
         <h2 class="serif" style="font-size:1.8rem;color:#EAB308;margin-bottom:1rem">Kvíz dokončen</h2>
         <p style="color:#9ca3af;margin-bottom:2rem">Brožura je odemčena. Můžete pokračovat.</p>
-        <button class="btn-yellow" onclick="navigate('brochure')">Přejít k brožuře →</button>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+          <button class="btn-yellow" onclick="navigate('brochure')">Přejít k brožuře →</button>
+          <button class="btn-ghost" onclick="resetQuiz()">↺ Zopakovat kvíz</button>
+        </div>
       </div>`;
       return;
     }
