@@ -153,7 +153,6 @@
         <button class="nav-btn" onclick="navigate('brochure')" id="nav-brochure">Brožura</button>
         <button class="nav-btn" onclick="navigate('summary')" id="nav-summary">Shrnutí</button>
         <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
-        <button class="nav-btn" onclick="navigate('reader')" id="nav-reader" style="border-color:rgba(234,179,8,0.3);color:#6b7280;font-style:italic">↗ Text</button>
       </div>
     </div>
   </nav>
@@ -345,7 +344,6 @@
     quizAnswered: Array(5).fill(null),
     quizDone: false,
     chapter: 0,
-    readerCh: 0,
     notes: {}
   };
 
@@ -385,10 +383,6 @@
       if (!isNaN(ch) && ch >= 0 && ch < CHAPTERS.length) state.chapter = ch;
       state.view = 'brochure';
       closeSidebar();
-    } else if (view === 'reader') {
-      const ch = parseInt(param);
-      if (!isNaN(ch) && ch >= 0) state.readerCh = ch;
-      state.view = 'reader';
     } else if (['home','quiz','summary','sources'].includes(view)) {
       state.view = view;
     } else {
@@ -417,7 +411,7 @@
 
   // ===================== RENDER =====================
   function render() {
-    ['home','brochure','summary','sources','reader'].forEach(v => {
+    ['home','brochure','summary','sources'].forEach(v => {
       const el = document.getElementById('nav-' + v);
       if (el) el.classList.toggle('active', state.view === v);
     });
@@ -427,7 +421,6 @@
     else if (state.view === 'brochure') renderBrochure(main);
     else if (state.view === 'summary') renderSummary(main);
     else if (state.view === 'sources') renderSources(main);
-    else if (state.view === 'reader') renderReader(main);
   }
 
   // HOME
@@ -624,51 +617,6 @@
         <button class="btn-ghost" onclick="navigate('brochure')">← Zpět do brožury</button>
       </div>
     </div>`;
-  }
-
-  // READER (HTML brožura)
-  function renderReader(main) {
-    const chapters = window.CHAPTERS_DATA || [];
-    if (!chapters.length) { main.innerHTML = '<p style="color:#9ca3af;padding:3rem">Žádný obsah.</p>'; return; }
-    const idx = Math.max(0, Math.min(state.readerCh, chapters.length - 1));
-    const ch = chapters[idx];
-    const total = chapters.length;
-    const hasPrev = idx > 0;
-    const hasNext = idx < total - 1;
-
-    const rightsHtml = (ch.rights || []).map(r =>
-      `<span style="display:inline-block;background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);border-radius:20px;padding:0.25rem 0.75rem;font-size:0.72rem;color:#EAB308;margin:0.2rem">${r.label}</span>`
-    ).join('');
-
-    const navBtn = (label, ch) => ch >= 0 && ch < total
-      ? `<button onclick="state.readerCh=${ch};render();window.scrollTo(0,0)" style="background:transparent;border:1px solid rgba(255,255,255,0.15);border-radius:8px;padding:0.6rem 1.2rem;color:#9ca3af;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.85rem;transition:all 0.15s" onmouseover="this.style.borderColor='#EAB308';this.style.color='#EAB308'" onmouseout="this.style.borderColor='rgba(255,255,255,0.15)';this.style.color='#9ca3af'">${label}</button>`
-      : `<span style="width:100px;display:inline-block"></span>`;
-
-    const dots = Array.from({length: total}, (_, i) =>
-      `<span onclick="state.readerCh=${i};render();window.scrollTo(0,0)" style="width:${i===idx?'20px':'8px'};height:8px;border-radius:4px;background:${i===idx?'#EAB308':'rgba(255,255,255,0.15)'};display:inline-block;cursor:pointer;transition:all 0.2s;margin:0 2px"></span>`
-    ).join('');
-
-    main.innerHTML = `
-      <div class="fade-in" style="max-width:720px;margin:0 auto;padding:2rem 1.5rem 5rem">
-        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:2rem;flex-wrap:wrap;gap:1rem">
-          <div style="display:flex;align-items:center;gap:0.5rem">${dots}</div>
-          <span style="font-size:0.75rem;color:#4b5563">${idx+1} / ${total}</span>
-        </div>
-
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:2.5rem 2rem">
-          <p style="font-size:0.7rem;letter-spacing:0.15em;color:#6b7280;text-transform:uppercase;margin-bottom:0.5rem">Kapitola ${idx+1}</p>
-          <h2 class="serif" style="font-size:1.75rem;color:#fff;margin-bottom:0.3rem;line-height:1.2">${ch.title}</h2>
-          ${ch.subtitle ? `<p style="color:#6b7280;font-size:0.875rem;margin-bottom:1.25rem">${ch.subtitle}</p>` : ''}
-          ${rightsHtml ? `<div style="margin-bottom:1.75rem;line-height:2">${rightsHtml}</div>` : ''}
-          <div class="reader-content" style="color:#d1d5db;font-size:0.9rem;line-height:1.85">${ch.content}</div>
-        </div>
-
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2rem">
-          ${navBtn('← Předchozí', idx - 1)}
-          ${navBtn('Další →', idx + 1)}
-        </div>
-      </div>
-    `;
   }
 
   // SOURCES
