@@ -162,6 +162,9 @@
 
   <!-- Content files – edit these to change chapter text -->
   <script src="content/quiz.js"></script>
+  <script src="content/sources_online.js"></script>
+  <script src="content/sources_literatura.js"></script>
+  <script src="content/sources_ai.js"></script>
   <script src="content/ch01.js"></script>
   <script src="content/ch02.js"></script>
   <script src="content/ch03.js"></script>
@@ -618,6 +621,19 @@
 
   // SOURCES
   function renderSources(main) {
+    const online = (window.SOURCES_ONLINE || []).map(s =>
+      `<a href="${s.url}" target="_blank" rel="noopener noreferrer" style="color:#6b7280;font-size:0.875rem;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04)" onmouseover="this.style.color='#EAB308'" onmouseout="this.style.color='#6b7280'">🔗 ${s.name}</a>`
+    ).join('');
+
+    const literatura = (window.SOURCES_LITERATURA || []).map(l =>
+      `<li><strong style="color:#d1d5db">${l.autor}</strong> — ${l.titul}</li>`
+    ).join('');
+
+    const ai = window.SOURCES_AI || {};
+    const aiOdstavce = (ai.odstavce || []).map((p, i) =>
+      `<p style="font-size:0.875rem;color:#9ca3af;line-height:1.7${i > 0 ? '' : ';margin-bottom:1rem'}">${p}</p>`
+    ).join('');
+
     main.innerHTML = `<div class="fade-in" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem">
       <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.4rem">Zdroje a dokumenty</h2>
       <p style="color:#6b7280;font-size:0.875rem;margin-bottom:2.5rem">Odborné dokumenty, online zdroje a doporučená literatura</p>
@@ -640,29 +656,15 @@
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
           <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">🌐 Online zdroje</p>
-          <div style="display:flex;flex-direction:column;gap:0.6rem">
-            ${[
-              {name:'Holocaust Encyclopedia – Aktion T4 (anglicky)', url:'https://encyclopedia.ushmm.org/content/en/article/euthanasia-program'},
-              {name:'Sunflower Hidden Disabilities – symbol slunečnice', url:'https://hiddendisabilitiesstore.com/pages/about-us'},
-              {name:'Úmluva OSN o právech osob se zdravotním postižením (CRPD)', url:'https://www.un.org/development/desa/disabilities/convention-on-the-rights-of-persons-with-disabilities.html'},
-              {name:'Listina základních práv EU – EUR-Lex (česky)', url:'https://eur-lex.europa.eu/legal-content/CS/TXT/?uri=CELEX:12012P/TXT'},
-              {name:'Listina základních práv a svobod ČR – PSP', url:'https://www.psp.cz/docs/laws/listina.html'},
-            ].map(s=>`<a href="${s.url}" target="_blank" rel="noopener noreferrer" style="color:#6b7280;font-size:0.875rem;text-decoration:none;display:flex;align-items:center;gap:0.5rem;transition:color 0.2s;padding:0.4rem 0;border-bottom:1px solid rgba(255,255,255,0.04)" onmouseover="this.style.color='#EAB308'" onmouseout="this.style.color='#6b7280'">🔗 ${s.name}</a>`).join('')}
-          </div>
+          <div style="display:flex;flex-direction:column;gap:0.6rem">${online}</div>
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
           <p style="font-weight:500;color:#e5e5e5;margin-bottom:0.75rem">📚 Doporučená literatura</p>
-          <ul style="list-style:disc;padding-left:1.25rem;color:#6b7280;font-size:0.875rem;line-height:2">
-            <li><strong style="color:#d1d5db">Lifton, R. J.</strong> — The Nazi Doctors: Medical Killing and the Psychology of Genocide (1986)</li>
-            <li><strong style="color:#d1d5db">Burleigh, M.</strong> — Death and Deliverance: Euthanasia in Germany c. 1900–1945 (1994)</li>
-            <li><strong style="color:#d1d5db">Friedlander, H.</strong> — The Origins of Nazi Genocide: From Euthanasia to the Final Solution (1995)</li>
-            <li><strong style="color:#d1d5db">Arendt, H.</strong> — Eichmann v Jeruzalémě (česky dostupné)</li>
-          </ul>
+          <ul style="list-style:disc;padding-left:1.25rem;color:#6b7280;font-size:0.875rem;line-height:2">${literatura}</ul>
         </div>
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
-          <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">✍️ Lidská a strojová tvorba</p>
-          <p style="font-size:0.875rem;color:#9ca3af;line-height:1.7;margin-bottom:1rem">Jádro tohoto projektu je lidské: výzkum a výběr témat, příběhů a historických faktů — to vše vzniklo pečlivou lidskou prací, studiem pramenů a promyšleným pedagogickým záměrem. Editoriální rozhodnutí, hodnotový rámec, volba úhlů pohledu a propojení minulosti se současností jsou dílem člověka.</p>
-          <p style="font-size:0.875rem;color:#9ca3af;line-height:1.7">Umělá inteligence sloužila jako technický pomocník při psaní a ladění kódu interaktivní aplikace — struktury webu, navigace, vizuálního zpracování. Obsah brožury, výběr zdrojů a didaktická koncepce jsou výhradně výsledkem lidského úsilí.</p>
+          <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">✍️ ${ai.nadpis || 'Lidská a strojová tvorba'}</p>
+          ${aiOdstavce}
         </div>
       </div>
     </div>`;
