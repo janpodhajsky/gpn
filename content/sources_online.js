@@ -17,6 +17,7 @@ window.SOURCES_ONLINE = [
   {name: 'ÚSTR – Paměť a dějiny: Akce T4 (PDF)', url: 'https://www.ustrcr.cz/data/pdf/pamet-dejiny/pad1502/056-066.pdf'},
 
   // Pamětní místa
+  {name: 'Terezínské studie – Pirna-Sonnenstein po 85 letech (⚠ SSL problém)', url: 'http://www.terezinstudies.cz/cs/aktuality/Pirna-Sonnenstein-po-85-letech/'},
   {name: 'Saské Švýcarsko – Památník Pirna-Sonnenstein', url: 'https://www.saechsische-schweiz.de/cz/vyletni-cile/pamatnik-pirna-sonnenstein'},
   {name: 'Elbe-Labe – Muzeum a památník Pirna-Sonnenstein', url: 'https://www.elbelabe.eu/cz/poi/m/museum-gedenksstaette-pirna-sonnenstein/'},
 
