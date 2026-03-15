@@ -620,7 +620,7 @@
     ).join('');
 
     const literatura = (window.SOURCES_LITERATURA || []).map(l =>
-      `<li><strong style="color:#d1d5db">${l.titul}</strong> — ${l.autor}</li>`
+      `<li><strong style="color:#d1d5db">${l.nazev}</strong>${l.info ? ` — <span style="font-weight:400">${l.info}</span>` : ''}</li>`
     ).join('');
 
     const ai = window.SOURCES_AI || {};
