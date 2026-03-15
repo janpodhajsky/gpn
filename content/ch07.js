@@ -42,5 +42,9 @@ window.CHAPTERS_DATA.push({
   Přesto inkluze v praxi stále naráží na překážky – v přístupu ke vzdělání,
   zaměstnání, zdravotní péči i veřejnému životu.
 </p>
+<div style="margin:2rem 0">
+  <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">▶ Video</p>
+  <div class="video-wrap"><video controls src="video_zaver.mov" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px"></video></div>
+</div>
 `
 });
