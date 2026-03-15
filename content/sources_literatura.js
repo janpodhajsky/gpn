@@ -1,8 +1,6 @@
 // Doporučená literatura – sekce Zdroje
 
 window.SOURCES_LITERATURA = [
-  {autor: 'Lifton, R. J.', titul: 'The Nazi Doctors: Medical Killing and the Psychology of Genocide (1986)'},
-  {autor: 'Burleigh, M.', titul: 'Death and Deliverance: Euthanasia in Germany c. 1900–1945 (1994)'},
-  {autor: 'Friedlander, H.', titul: 'The Origins of Nazi Genocide: From Euthanasia to the Final Solution (1995)'},
-  {autor: 'Arendt, H.', titul: 'Eichmann v Jeruzalémě (česky dostupné)'},
+  {autor: 'Šimůnek, M. V. a Novák, M.', titul: 'Oběti smrti. Praha: Academia, 2023. ISBN 978-80-200-3470-0.'},
+  {autor: 'kol.', titul: 'Odtransportovaní – zemřelí – zapomenutí. Pavel Mervart, 2016. ISBN 978-80-7465-213-4.'},
 ];
