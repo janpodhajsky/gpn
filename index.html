@@ -152,6 +152,7 @@
         <button class="nav-btn" onclick="navigate('home')" id="nav-home">Úvod</button>
         <button class="nav-btn" onclick="navigate('brochure')" id="nav-brochure">Brožura</button>
         <button class="nav-btn" onclick="navigate('summary')" id="nav-summary">Shrnutí</button>
+        <button class="nav-btn" onclick="navigate('materials')" id="nav-materials">Materiály</button>
         <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
       </div>
     </div>
@@ -383,7 +384,7 @@
       if (!isNaN(ch) && ch >= 0 && ch < CHAPTERS.length) state.chapter = ch;
       state.view = 'brochure';
       closeSidebar();
-    } else if (['home','quiz','summary','sources'].includes(view)) {
+    } else if (['home','quiz','summary','sources','materials'].includes(view)) {
       state.view = view;
     } else {
       state.view = 'home';
@@ -411,7 +412,7 @@
 
   // ===================== RENDER =====================
   function render() {
-    ['home','brochure','summary','sources'].forEach(v => {
+    ['home','brochure','summary','sources','materials'].forEach(v => {
       const el = document.getElementById('nav-' + v);
       if (el) el.classList.toggle('active', state.view === v);
     });
@@ -421,6 +422,7 @@
     else if (state.view === 'brochure') renderBrochure(main);
     else if (state.view === 'summary') renderSummary(main);
     else if (state.view === 'sources') renderSources(main);
+    else if (state.view === 'materials') renderMaterials(main);
   }
 
   // HOME
@@ -627,28 +629,9 @@
     ).join('');
 
     main.innerHTML = `<div class="fade-in" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem">
-      <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.4rem">Zdroje a dokumenty</h2>
-      <p style="color:#6b7280;font-size:0.875rem;margin-bottom:2.5rem">Odborné dokumenty, online zdroje a doporučená literatura</p>
+      <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.4rem">Zdroje</h2>
+      <p style="color:#6b7280;font-size:0.875rem;margin-bottom:2.5rem">Online zdroje a doporučená literatura</p>
       <div style="display:flex;flex-direction:column;gap:1rem">
-        <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
-          <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)">
-            <p style="font-weight:500;color:#e5e5e5">🎬 Video</p>
-          </div>
-          <div style="padding:1.25rem;display:flex;flex-direction:column;gap:1.25rem">
-            <div>
-              <div class="video-wrap"><iframe src="https://drive.google.com/file/d/16Rl4_Er-BGrfxfzZrRX4SnSUKciTMLSD/preview" allow="autoplay" allowfullscreen loading="lazy" title="Dokumentace a svědectví"></iframe></div>
-              <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Dokumentace a svědectví</p>
-            </div>
-            <div>
-              <div class="video-wrap"><iframe src="https://drive.google.com/file/d/1UGzdkMdhldgiN1BooC5kLuTgYB3V-woA/preview" allow="autoplay" allowfullscreen loading="lazy" title="Historický kontext a svědectví"></iframe></div>
-              <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Historický kontext a svědectví</p>
-            </div>
-            <div>
-              <div class="video-wrap"><video controls src="video_zaver.mov" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px"></video></div>
-              <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Závěr</p>
-            </div>
-          </div>
-        </div>
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
           <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">🌐 Online zdroje</p>
           <div style="display:flex;flex-direction:column;gap:0.6rem">${online}</div>
@@ -660,6 +643,33 @@
         <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem">
           <p style="font-weight:500;color:#e5e5e5;margin-bottom:1rem">✍️ ${ai.nadpis || 'Lidská a strojová tvorba'}</p>
           ${aiOdstavce}
+        </div>
+      </div>
+    </div>`;
+  }
+
+  // MATERIALS
+  function renderMaterials(main) {
+    main.innerHTML = `<div class="fade-in" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem 5rem">
+      <h2 class="serif" style="font-size:1.9rem;color:#fff;margin-bottom:0.4rem">Materiály</h2>
+      <p style="color:#6b7280;font-size:0.875rem;margin-bottom:2.5rem">Videa k tématu</p>
+      <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden">
+        <div style="padding:1rem 1.25rem;border-bottom:1px solid rgba(255,255,255,0.06)">
+          <p style="font-weight:500;color:#e5e5e5">🎬 Video</p>
+        </div>
+        <div style="padding:1.25rem;display:flex;flex-direction:column;gap:1.25rem">
+          <div>
+            <div class="video-wrap"><iframe src="https://drive.google.com/file/d/16Rl4_Er-BGrfxfzZrRX4SnSUKciTMLSD/preview" allow="autoplay" allowfullscreen loading="lazy" title="Dokumentace a svědectví"></iframe></div>
+            <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Dokumentace a svědectví</p>
+          </div>
+          <div>
+            <div class="video-wrap"><iframe src="https://drive.google.com/file/d/1UGzdkMdhldgiN1BooC5kLuTgYB3V-woA/preview" allow="autoplay" allowfullscreen loading="lazy" title="Historický kontext a svědectví"></iframe></div>
+            <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Historický kontext a svědectví</p>
+          </div>
+          <div>
+            <div class="video-wrap"><video controls src="video_zaver.mov" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px"></video></div>
+            <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">Závěr</p>
+          </div>
         </div>
       </div>
     </div>`;
