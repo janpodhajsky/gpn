@@ -443,14 +443,6 @@
           ${state.quizDone ? `<button class="btn-outline" onclick="navigate('brochure')">Přejít k brožuře →</button>` : ''}
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem">
-        ${[
-          {icon:'📚',title:'Interaktivní brožura',desc:'7 kapitol propojujících historii se současností a lidskými právy'},
-          {icon:'✍️',title:'Poznámky',desc:'Zapisujte si myšlenky a reflexe přímo v textu brožury'},
-          {icon:'📋',title:'Shrnutí',desc:'Vygenerujte přehled svých poznámek a vytiskněte nebo exportujte do PDF'},
-          {icon:'📎',title:'Zdroje',desc:'Ke stažení dostupné odborné dokumenty a doporučená literatura'},
-        ].map(c=>`<div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:1.25rem"><div style="font-size:1.75rem;margin-bottom:0.5rem">${c.icon}</div><p style="font-weight:600;color:#e5e5e5;margin-bottom:0.35rem">${c.title}</p><p style="font-size:0.8rem;color:#6b7280;line-height:1.5">${c.desc}</p></div>`).join('')}
-      </div>
     </div>`;
   }
 
