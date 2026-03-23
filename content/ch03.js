@@ -4,11 +4,7 @@ window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
   title: "Propaganda",
   subtitle: "Jak se připravovala půda pro vraždění",
-  rights: [
-    { label: "Lidská důstojnost je nedotknutelná", ref: "čl. 1 Listiny základních práv EU" },
-    { label: "Zakazuje se jakákoliv diskriminace", ref: "čl. 21 Listiny základních práv EU" },
-    { label: "Lidé jsou svobodní a rovní v důstojnosti i v právech", ref: "čl. 1 Listiny základních práv a svobod ČR" }
-  ],
+  rights: [],
   video: null,
   extraInputs: [
     { key: 'ch2-hitler', label: 'Napište tři přídavná jména, která podle Vás vystihují pohled Adolfa Hitlera na humanitu.' },
@@ -19,24 +15,44 @@ window.CHAPTERS_DATA.push({
 
     // ── STRÁNKA 1 ──────────────────────────────────────────────────
     `
-<div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;align-items:flex-start">
+<div style="border:1.5px solid rgba(234,179,8,0.4);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem;background:rgba(234,179,8,0.05)">
+  <p style="font-size:0.78rem;font-weight:700;color:#EAB308;letter-spacing:0.1em;margin-bottom:0.9rem">PORUŠENÁ PRÁVA</p>
+  <p style="color:#e5e5e5;line-height:1.7;margin-bottom:0.75rem">
+    <strong style="color:#fff">Lidská důstojnost je nedotknutelná</strong><br>
+    <span style="font-size:0.8rem;color:#9ca3af">(ČLÁNEK 1, LISTINA ZÁKLADNÍCH PRÁV EVROPSKÉ UNIE)</span>
+  </p>
+  <p style="color:#e5e5e5;line-height:1.7;margin-bottom:0.75rem">
+    Zakazuje se jakákoliv diskriminace<br>
+    <span style="font-size:0.8rem;color:#9ca3af">(ČLÁNEK 21, LISTINA ZÁKLADNÍCH PRÁV EVROPSKÉ UNIE)</span>
+  </p>
+  <p style="color:#e5e5e5;line-height:1.7;margin-bottom:0">
+    Lidé jsou svobodní a rovní v důstojnosti i v právech<br>
+    <span style="font-size:0.8rem;color:#9ca3af">(ČLÁNEK 1, LISTINA ZÁKLADNÍCH PRÁV A SVOBOD ČESKÉ REPUBLIKY)</span>
+  </p>
+</div>
 
-  <!-- Hitler -->
-  <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;gap:0.75rem">
-    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(180,30,30,0.45);border-radius:4px 18px 18px 18px;padding:0.9rem 1.1rem;position:relative">
+<!-- Hitler: obrázek vlevo, bublina vpravo -->
+<div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
+  <div style="flex-shrink:0">
+    <img src="img/ah.png" alt="Adolf Hitler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
+  <div style="flex:1;min-width:180px">
+    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(180,30,30,0.45);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
       <p style="color:#e5e5e5;font-size:0.85rem;line-height:1.6;margin:0;font-style:italic">„Silnější pokolení vypudí slabé, neboť touha po životě ve své poslední podobě vždy znovu rozbije všechna směšná pouta tzv. humanity, aby na její místo nechala nastoupit humanitu přírody ničící slabé, a tak bylo síle uvolněno místo"</p>
     </div>
-    <img src="img/ah.png" alt="Adolf Hitler" style="max-height:170px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
+</div>
 
-  <!-- Masaryk -->
-  <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;gap:0.75rem">
-    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 4px 18px 18px;padding:0.9rem 1.1rem;position:relative">
+<!-- Masaryk: obrázek vlevo, bublina vpravo -->
+<div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:2rem;flex-wrap:wrap">
+  <div style="flex-shrink:0">
+    <img src="img/masaryk.png" alt="T.G. Masaryk" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
+  <div style="flex:1;min-width:180px">
+    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
       <p style="color:#e5e5e5;font-size:0.85rem;line-height:1.6;margin:0;font-style:italic">„Žádný stát neobstojí, nemá-li pevné mravní základy své existence. Práva demokracie je humanitní, humanita je éthickou základnou veškeré politiky"</p>
     </div>
-    <img src="img/masaryk.png" alt="T.G. Masaryk" style="max-height:170px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
-
 </div>
 
 [[INPUTS]]
