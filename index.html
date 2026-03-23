@@ -550,11 +550,11 @@
       <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:0.4rem">Kapitola ${i+1} z ${CHAPTERS.length}</p>
       <h2 class="serif" style="font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:0.3rem">${ch.title}</h2>
       <p style="color:#6b7280;font-size:0.875rem;margin-bottom:1.75rem">${ch.subtitle}</p>
-      <div class="rights-box">
+      ${ch.rights && ch.rights.length ? `<div class="rights-box">
         <p style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;color:#ca9a06;font-weight:600;margin-bottom:0.5rem">⚖️ Porušená práva</p>
         <p style="font-size:0.7rem;color:#4b5563;margin-bottom:0.5rem">Listina základních práv a svobod ČR a Listina základních práv EU</p>
         ${ch.rights.map(r=>`<p style="font-size:0.85rem;color:#d1d5db;margin-bottom:0.2rem"><strong style="color:#EAB308">${r.label}</strong> <span style="color:#6b7280;font-size:0.78rem">— ${r.ref}</span></p>`).join('')}
-      </div>
+      </div>` : ''}
       <div style="line-height:1.8;font-size:0.92rem;color:#d1d5db">${ch.content}</div>
       ${ch.video ? `<div style="margin:2rem 0">
         <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">▶ Video</p>

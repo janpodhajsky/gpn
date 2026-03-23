@@ -4,11 +4,7 @@ window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
   title: "První znaky vyhlazování (1934)",
   subtitle: "Sterilizace a omezování práva na život",
-  rights: [
-    { label: "Právo na život", ref: "čl. 2 Listiny základních práv EU" },
-    { label: "Nedotknutelnost osoby", ref: "čl. 1 Listiny základních práv EU" },
-    { label: "Zákaz mučení a nelidského zacházení", ref: "čl. 4 Listiny základních práv EU" }
-  ],
+  rights: [],
   video: null,
   noteQ: `Jak mohla ideologie „rasové hygieny" proniknout do medicíny – profese, jejímž základním etickým závazkem je „neškodit"? Jakou roli hraje vzdělání a propaganda v utváření morálních hranic?`,
   content: `
@@ -28,15 +24,15 @@ window.CHAPTERS_DATA.push({
   </p>
 </div>
 
-<div style="display:flex;align-items:flex-end;gap:1.5rem;margin-bottom:1.75rem;flex-wrap:wrap">
+<div style="display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.75rem;flex-wrap:wrap">
+  <div style="flex-shrink:0">
+    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
   <div style="flex:1;min-width:200px">
-    <div style="position:relative;display:inline-block;background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem;margin-bottom:0.5rem">
+    <div style="position:relative;display:inline-block;background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
       <p style="color:#fff;font-weight:700;font-size:0.95rem;line-height:1.5;margin:0">MÁ NĚKDO PRÁVO ROZHODOVAT, KDO MŮŽE MÍT DĚTI A KDO NE?</p>
       <div style="position:absolute;bottom:-12px;left:18px;width:0;height:0;border-left:12px solid transparent;border-right:0px solid transparent;border-top:12px solid rgba(234,179,8,0.35)"></div>
     </div>
-  </div>
-  <div style="flex-shrink:0">
-    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
 </div>
 

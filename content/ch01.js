@@ -4,10 +4,7 @@ window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
   title: "Svět bez těch druhých, svět bez nás všech",
   subtitle: "Úvod a časová osa",
-  rights: [
-    { label: "Právo na život", ref: "čl. 6 Listiny základních práv a svobod ČR" },
-    { label: "Lidská důstojnost a právo na ochranu dobré pověsti", ref: "čl. 10 LZPS ČR / čl. 1 Listiny EU" }
-  ],
+  rights: [],
   video: null,
   noteQ: "Který bod na časové ose vás nejvíce zaujal nebo překvapil? Proč?",
   content: `
