@@ -1,47 +1,112 @@
-// Kapitola 3 – Průběh programu
-// Video: 0304.mov
+// Kapitola 3 – Propaganda
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: "Průběh programu",
-  subtitle: "Metody a místa",
+  title: "Propaganda",
+  subtitle: "Jak se připravovala půda pro vraždění",
   rights: [
-    { label: "Zákaz mučení a nelidského nebo ponižujícího zacházení", ref: "čl. 7 odst. 2 LZPS ČR / čl. 4 Listiny EU" },
-    { label: "Právo na život", ref: "čl. 2 Listiny základních práv EU" }
+    { label: "Lidská důstojnost je nedotknutelná", ref: "čl. 1 Listiny základních práv EU" },
+    { label: "Zakazuje se jakákoliv diskriminace", ref: "čl. 21 Listiny základních práv EU" },
+    { label: "Lidé jsou svobodní a rovní v důstojnosti i v právech", ref: "čl. 1 Listiny základních práv a svobod ČR" }
   ],
-  video: {
-    id: "16Rl4_Er-BGrfxfzZrRX4SnSUKciTMLSD",
-    title: "Dokumentace a svědectví"
-  },
-  noteQ: "Jakou roli hrála anonymita (lékař nikdy pacienta neviděl, rozhodoval jen z papíru) v tomto procesu? Jak ovlivňuje anonymita morální rozhodování obecně? Znáte příklady z dnešní doby?",
-  content: `
-<p>
-  Pacientům v různých psychiatrických ústavech byl zaslán registrační formulář
-  (tzv. <em>Meldebögen</em>). Komise složená z lékařů – kteří pacienty
-  <strong>nikdy osobně neviděli</strong> – rozhodla na základě formulářů o jejich
-  osudu. Malá červená značka „<strong>+</strong>" znamenala smrt, modré
-  „<strong>–</strong>" přežití. Každý lékař zpracoval denně desítky formulářů.
-</p>
+  video: null,
+  extraInputs: [
+    { key: 'ch2-hitler', label: 'Napište tři přídavná jména, která podle Vás vystihují pohled Adolfa Hitlera na humanitu.' },
+    { key: 'ch2-masaryk', label: 'Napište tři přídavná jména, která podle Vás vystihují pohled T.G. Masaryka na humanitu.' }
+  ],
+  noteQ: "Na základě obsahu kapitoly: Jak propaganda mění vnímání hodnoty lidského života? Dokážete uvést příklad z dnešní doby, kdy jsou slova nebo obrazy používány k odlidštění určité skupiny?",
+  pages: [
 
-<h3 class="ch-h3">Šest center eutanázie</h3>
-<div class="ch-cards">
-  <div class="ch-card">Bernburg<br><small>Sasko-Anhaltsko</small></div>
-  <div class="ch-card">Brandenburg a. d. H.<br><small>Braniborsko</small></div>
-  <div class="ch-card">Grafeneck<br><small>Bádensko-Württembersko</small></div>
-  <div class="ch-card">Hartheim<br><small>Horní Rakousy</small></div>
-  <div class="ch-card">Hadamar<br><small>Hesensko</small></div>
-  <div class="ch-card">Sonnenstein<br><small>Sasko</small></div>
+    // ── STRÁNKA 1 ──────────────────────────────────────────────────
+    `
+<div style="display:flex;gap:2rem;flex-wrap:wrap;margin-bottom:2rem;align-items:flex-start">
+
+  <!-- Hitler -->
+  <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;gap:0.75rem">
+    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(180,30,30,0.45);border-radius:4px 18px 18px 18px;padding:0.9rem 1.1rem;position:relative">
+      <p style="color:#e5e5e5;font-size:0.85rem;line-height:1.6;margin:0;font-style:italic">„Silnější pokolení vypudí slabé, neboť touha po životě ve své poslední podobě vždy znovu rozbije všechna směšná pouta tzv. humanity, aby na její místo nechala nastoupit humanitu přírody ničící slabé, a tak bylo síle uvolněno místo"</p>
+    </div>
+    <img src="img/ah.png" alt="Adolf Hitler" style="max-height:170px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
+
+  <!-- Masaryk -->
+  <div style="flex:1;min-width:200px;display:flex;flex-direction:column;align-items:center;gap:0.75rem">
+    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 4px 18px 18px;padding:0.9rem 1.1rem;position:relative">
+      <p style="color:#e5e5e5;font-size:0.85rem;line-height:1.6;margin:0;font-style:italic">„Žádný stát neobstojí, nemá-li pevné mravní základy své existence. Práva demokracie je humanitní, humanita je éthickou základnou veškeré politiky"</p>
+    </div>
+    <img src="img/masaryk.png" alt="T.G. Masaryk" style="max-height:170px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
+
 </div>
 
-<p>
-  V těchto zařízeních byli pacienti usmrcováni <strong>kysličníkem uhelnatým</strong>
-  v plynových komorách maskovaných jako sprchové místnosti – přímý předchůdce
-  technologie použité v holocaustu.
+[[INPUTS]]
+
+<div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;margin-bottom:1.5rem">
+  <div style="flex:1;min-width:200px">
+    <p style="line-height:1.8;color:#d1d5db">
+      Adolf Hitler se ze začátku bál odporu proti plánované akci. A tak muselo vzniknout něco, co by se slovy J. Goebbelse <em>„vklínilo do vědomí každého obyvatele"</em>. Rasová propaganda byla doslova všude: v tisku, ve filmu, v rozhlase, ale také při školním vyučování. Většinou se ukazovali ilustrace mající dokládat naprosto přehnané náklady sociální podpory. Jindy zase byli nemocní lidé odlidštěni a zobrazováni jako zvířata.
+    </p>
+  </div>
+  <div style="flex-shrink:0;text-align:center">
+    <img src="img/gb.png" alt="Propagandistický plakát" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+  </div>
+</div>
+
+<div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;margin-bottom:2rem">
+  <div style="flex:1;min-width:200px">
+    <p style="line-height:1.8;color:#d1d5db">
+      Z filmové tvorby se nejvíce proslavil propagandistický film <strong style="color:#fff">„Žaluji"</strong> (<em>Ich klage an</em>) z roku 1941. Vypráví příběh ženy trpící roztroušenou sklerózou. Pravý důvod vzniku tohoto filmu je však ospravedlnit masové vraždy páchané na bezbranných obětech.
+    </p>
+  </div>
+  <div style="flex-shrink:0;text-align:center">
+    <img src="img/zaluji.png" alt="Film Žaluji" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+  </div>
+</div>
+
+<div style="margin-bottom:1.5rem">
+  <img src="img/uk.png" alt="Ukázka propagandistického materiálu" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <p style="font-size:0.78rem;color:#6b7280;margin-top:0.6rem;line-height:1.6;font-style:italic">PŘEKLAD: …protože Bůh nemůže chtít, aby se nemocní a churaví rozmnožovali v nemocných a churavých</p>
+</div>
+
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+  <div style="flex:1;min-width:140px">
+    <img src="img/uk1.png" alt="Ukázka 1" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+  </div>
+  <div style="flex:1;min-width:140px">
+    <img src="img/uk2.png" alt="Ukázka 2" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+  </div>
+</div>
+`,
+
+    // ── STRÁNKA 2 ──────────────────────────────────────────────────
+    `
+<div style="display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap">
+  <div style="flex-shrink:0">
+    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+  </div>
+  <div style="flex:1;min-width:200px">
+    <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
+      <p style="color:#fff;font-weight:700;font-size:0.95rem;line-height:1.5;margin:0">Kdy se začaly objevovat ojedinělé, ale přesto protiprávní případy?</p>
+    </div>
+  </div>
+</div>
+
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">
+  V Československu byl během chemických pokusů těžce poraněn čtrnáctiletý chlapec. Jeho matka společně se svou sestrou bez vědomí otce chlapce chladnokrevně zastřelili pěti ranami z pistole. Vykřičníkem nezůstává jen fakt, kolik ran bylo na zraněného chlapce použito a že otec o tomto plánu nevěděl, zarážející je i fakt, že jedna z žen byla lékařkou. Z činu však byly omilostněny.
 </p>
-<p class="ch-p">
-  Rodinám byly odesílány <strong>falešné dopisy</strong> s vymyšlenými příčinami
-  úmrtí (zápal plic, srdeční selhání) a nepravdivými daty. Urny vracené příbuzným
-  mnohdy obsahovaly anonymní popel z krematoria.
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
+  V Německu se zase do propagandy hodil případ rolníka, který si vzal z ústavu svého postiženého syna. Avšak poté, co se dozvěděl, že jeho syn bude prohlášen za nebezpečného, ho raději sám zastřelil. Propagandistické články se otce zastávaly a poukazovaly na <em>„zdravý selský rozum"</em>.
 </p>
+<p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem;line-height:1.6">
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
+</p>
+
+<div style="border:1.5px solid rgba(234,179,8,0.35);border-radius:10px;padding:1.25rem 1.5rem;background:rgba(234,179,8,0.05);margin-bottom:2rem">
+  <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:#EAB308;margin-bottom:0.75rem;letter-spacing:0.03em">CO SI ODNÁŠÍME?</h4>
+  <p style="line-height:1.8;color:#d1d5db;margin:0">
+    Dle nacistické ideologie zdraví jedince nepatřilo jemu samotnému, nýbrž celému národu. A právě toto naprosto převrátilo lékařskou etiku, zdravotnický a sociální systém.
+  </p>
+</div>
 `
+  ]
 });

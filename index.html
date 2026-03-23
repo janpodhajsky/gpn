@@ -345,6 +345,7 @@
     quizAnswered: Array(5).fill(null),
     quizDone: false,
     chapter: 0,
+    chapterPage: 0,
     notes: {}
   };
 
@@ -366,7 +367,15 @@
   }
 
   function setChapter(i) {
+    state.chapterPage = 0;
     window.location.hash = 'brochure/' + i;
+  }
+
+  function advancePage() {
+    state.chapterPage++;
+    renderChapter(state.chapter);
+    const el = document.getElementById('chapter-content');
+    if (el) el.scrollTop = 0;
   }
 
   function handleHash() {
@@ -539,41 +548,62 @@
     const ch = CHAPTERS[i];
     const el = document.getElementById('chapter-content');
     if (!el) return;
+    const hasPages = ch.pages && ch.pages.length > 1;
+    const page = hasPages ? state.chapterPage : 0;
+    const isLastPage = !hasPages || page === ch.pages.length - 1;
+    const content = hasPages ? ch.pages[page] : ch.content;
     const noteId = 'ch' + i;
     const saved = state.notes[noteId] || '';
     const isLast = i === CHAPTERS.length - 1;
-    const useSunflower = i === 2 || i === 4;
+    const useSunflower = i === 4;
     const mt = document.getElementById('mobile-ch-title');
     if (mt) mt.textContent = ch.title;
 
+    // Replace [[INPUTS]] marker in content with actual input fields
+    let renderedContent = content;
+    if (ch.extraInputs && renderedContent.includes('[[INPUTS]]')) {
+      const inputsHtml = ch.extraInputs.map(inp => {
+        const val = (state.notes[inp.key] || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+        return `<div style="margin-bottom:1rem">
+          <p style="font-size:0.875rem;color:#9ca3af;margin-bottom:0.5rem;line-height:1.55">${inp.label}</p>
+          <textarea id="note-${inp.key}" class="note-area" style="min-height:60px" placeholder="Napište zde…" oninput="saveNote('${inp.key}')">${val}</textarea>
+        </div>`;
+      }).join('');
+      renderedContent = renderedContent.replace('[[INPUTS]]', inputsHtml);
+    }
+    const extraInputsHtml = '';
+
     el.innerHTML = `<div class="fade-in">
-      <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:0.4rem">Kapitola ${i+1} z ${CHAPTERS.length}</p>
+      <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:#6b7280;margin-bottom:0.4rem">Kapitola ${i+1} z ${CHAPTERS.length}${hasPages ? ` &nbsp;·&nbsp; část ${page+1}/${ch.pages.length}` : ''}</p>
       <h2 class="serif" style="font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:0.3rem">${ch.title}</h2>
       <p style="color:#6b7280;font-size:0.875rem;margin-bottom:1.75rem">${ch.subtitle}</p>
-      ${ch.rights && ch.rights.length ? `<div class="rights-box">
+      ${page === 0 && ch.rights && ch.rights.length ? `<div class="rights-box">
         <p style="font-size:0.68rem;text-transform:uppercase;letter-spacing:0.06em;color:#ca9a06;font-weight:600;margin-bottom:0.5rem">⚖️ Porušená práva</p>
         <p style="font-size:0.7rem;color:#4b5563;margin-bottom:0.5rem">Listina základních práv a svobod ČR a Listina základních práv EU</p>
         ${ch.rights.map(r=>`<p style="font-size:0.85rem;color:#d1d5db;margin-bottom:0.2rem"><strong style="color:#EAB308">${r.label}</strong> <span style="color:#6b7280;font-size:0.78rem">— ${r.ref}</span></p>`).join('')}
       </div>` : ''}
-      <div style="line-height:1.8;font-size:0.92rem;color:#d1d5db">${ch.content}</div>
-      ${ch.video ? `<div style="margin:2rem 0">
+      <div style="line-height:1.8;font-size:0.92rem;color:#d1d5db">${renderedContent}</div>
+      ${ch.video && isLastPage ? `<div style="margin:2rem 0">
         <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">▶ Video</p>
         <div class="video-wrap"><iframe src="https://drive.google.com/file/d/${ch.video.id}/preview" allow="autoplay" allowfullscreen loading="lazy" title="${ch.video.title}"></iframe></div>
         <p style="font-size:0.75rem;color:#4b5563;margin-top:0.4rem">${ch.video.title}</p>
       </div>` : ''}
-      <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)">
+      ${isLastPage ? `<div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)">
         <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:#EAB308;font-weight:600;margin-bottom:0.4rem">✍️ Moje poznámky</p>
+        ${extraInputsHtml}
         <p style="font-size:0.875rem;color:#9ca3af;margin-bottom:0.75rem;line-height:1.55">${ch.noteQ}</p>
         <textarea id="note-${noteId}" class="note-area" placeholder="Zde napište své myšlenky…" oninput="saveNote('${noteId}')">${saved.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</textarea>
-      </div>
+      </div>` : ''}
       <div style="display:flex;justify-content:space-between;align-items:center;margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,0.06)">
-        <div>${i>0?`<button class="btn-ghost" onclick="setChapter(${i-1})">← Předchozí</button>`:'<div></div>'}</div>
+        <div>${page > 0 ? `<button class="btn-ghost" onclick="state.chapterPage--;renderChapter(${i})">← Zpět</button>` : i > 0 ? `<button class="btn-ghost" onclick="setChapter(${i-1})">← Předchozí</button>` : '<div></div>'}</div>
         <div>
-          ${isLast
-            ? `<button class="btn-yellow" onclick="navigate('summary')">Zobrazit shrnutí →</button>`
-            : useSunflower
-              ? `<button class="sunflower-btn" onclick="setChapter(${i+1})"><span class="sf-icon">🌻</span><span>Pokračovat</span><div class="sunflower-tip">Slunečnice je symbolem pro lidi s neviditelným postižením. Vyjadřuje potřebu pochopení a pomoci od okolí.</div></button>`
-              : `<button class="btn-outline" onclick="setChapter(${i+1})">Pokračovat →</button>`
+          ${!isLastPage
+            ? `<button class="btn-outline" onclick="advancePage()">Pokračovat →</button>`
+            : isLast
+              ? `<button class="btn-yellow" onclick="navigate('summary')">Zobrazit shrnutí →</button>`
+              : useSunflower
+                ? `<button class="sunflower-btn" onclick="setChapter(${i+1})"><span class="sf-icon">🌻</span><span>Pokračovat</span><div class="sunflower-tip">Slunečnice je symbolem pro lidi s neviditelným postižením. Vyjadřuje potřebu pochopení a pomoci od okolí.</div></button>`
+                : `<button class="btn-outline" onclick="setChapter(${i+1})">Pokračovat →</button>`
           }
         </div>
       </div>
@@ -593,9 +623,19 @@
       <div id="print-area">
         ${CHAPTERS.map((ch,i)=>{
           const note = state.notes['ch'+i]||'';
+          const extraHtml = ch.extraInputs ? ch.extraInputs.map(inp => {
+            const val = state.notes[inp.key]||'';
+            return `<div style="margin-bottom:0.75rem">
+              <p style="font-size:0.8rem;color:#6b7280;line-height:1.5;margin-bottom:0.4rem;font-style:italic">${inp.label}</p>
+              <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(234,179,8,0.2);border-radius:6px;padding:0.75rem;min-height:36px">
+                ${val ? `<p style="font-size:0.875rem;line-height:1.7;color:#e5e5e5;white-space:pre-wrap">${val.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>` : `<p style="color:#4b5563;font-size:0.875rem;font-style:italic">Nevyplněno.</p>`}
+              </div>
+            </div>`;
+          }).join('') : '';
           return `<div style="margin-bottom:1.5rem;padding:1.25rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:10px">
             <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.3rem">Kapitola ${i+1}</p>
             <h3 class="serif" style="font-size:1.05rem;color:#EAB308;margin-bottom:0.5rem">${ch.title}</h3>
+            ${extraHtml}
             <p style="font-size:0.8rem;color:#6b7280;line-height:1.5;margin-bottom:0.75rem;font-style:italic">${ch.noteQ}</p>
             <div style="background:rgba(255,255,255,0.04);border:1px solid rgba(234,179,8,0.2);border-radius:6px;padding:0.875rem;min-height:50px">
               ${note ? `<p style="font-size:0.875rem;line-height:1.7;color:#e5e5e5;white-space:pre-wrap">${note.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</p>` : `<p style="color:#4b5563;font-size:0.875rem;font-style:italic">Žádná poznámka nebyla zapsána.</p>`}
