@@ -548,8 +548,8 @@
     const ch = CHAPTERS[i];
     const el = document.getElementById('chapter-content');
     if (!el) return;
-    const hasPages = ch.pages && ch.pages.length > 1;
-    const page = hasPages ? state.chapterPage : 0;
+    const hasPages = !!(ch.pages && ch.pages.length);
+    const page = hasPages ? Math.min(state.chapterPage, ch.pages.length - 1) : 0;
     const isLastPage = !hasPages || page === ch.pages.length - 1;
     const content = hasPages ? ch.pages[page] : ch.content;
     const noteId = 'ch' + i;
