@@ -34,7 +34,7 @@ window.CHAPTERS_DATA.push({
 <!-- Hitler: obrázek vlevo, bublina vpravo -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/ah.png" alt="Adolf Hitler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/hitler-propaganda.png" alt="Adolf Hitler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px">
     <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(180,30,30,0.45);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
@@ -46,7 +46,7 @@ window.CHAPTERS_DATA.push({
 <!-- Masaryk: obrázek vlevo, bublina vpravo -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:2rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/masaryk.png" alt="T.G. Masaryk" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/Masaryk-propaganda.png" alt="T.G. Masaryk" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px">
     <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
@@ -64,7 +64,7 @@ window.CHAPTERS_DATA.push({
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
-    <img src="img/gb.png" alt="Propagandistický plakát" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/goebbels - propaganda.png" alt="Propagandistický plakát" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
 </div>
 
@@ -75,21 +75,21 @@ window.CHAPTERS_DATA.push({
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
-    <img src="img/zaluji.png" alt="Film Žaluji" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/ich-klage-an film - propaganda.png" alt="Film Žaluji" style="max-width:200px;max-height:240px;border-radius:6px;opacity:0.85;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
 </div>
 
 <div style="margin-bottom:1.5rem">
-  <img src="img/uk.png" alt="Ukázka propagandistického materiálu" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <img src="img/propagandisticky leták 2 - propaganda.png" alt="Ukázka propagandistického materiálu" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
   <p style="font-size:0.78rem;color:#6b7280;margin-top:0.6rem;line-height:1.6;font-style:italic">PŘEKLAD: …protože Bůh nemůže chtít, aby se nemocní a churaví rozmnožovali v nemocných a churavých</p>
 </div>
 
 <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
   <div style="flex:1;min-width:140px">
-    <img src="img/uk1.png" alt="Ukázka 1" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/propagandistický letak original - propaganda.png" alt="Ukázka 1" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
   <div style="flex:1;min-width:140px">
-    <img src="img/uk2.png" alt="Ukázka 2" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/propagandistický leták  překlad- propaganda.png" alt="Ukázka 2" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
 </div>
 `,
@@ -98,7 +98,7 @@ window.CHAPTERS_DATA.push({
     `
 <div style="display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:2rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/Holka - klára.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:200px">
     <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">

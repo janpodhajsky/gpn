@@ -53,8 +53,8 @@ window.CHAPTERS_DATA.push({
 </p>
 
 <div style="display:flex;gap:2rem;justify-content:center;align-items:flex-end;margin-top:1.5rem">
-  <img src="img/klara.png" alt="Klára" style="max-width:220px;width:45%;mix-blend-mode:screen;opacity:0.9;filter:drop-shadow(0 0 18px rgba(0,0,0,0.8))">
-  <img src="img/jan.png" alt="Honza" style="max-width:220px;width:45%;mix-blend-mode:screen;opacity:0.9;filter:drop-shadow(0 0 18px rgba(0,0,0,0.8))">
+  <img src="img/Holka - klára.png" alt="Klára" style="max-width:220px;width:45%;mix-blend-mode:screen;opacity:0.9;filter:drop-shadow(0 0 18px rgba(0,0,0,0.8))">
+  <img src="img/kluk - Honza.png" alt="Honza" style="max-width:220px;width:45%;mix-blend-mode:screen;opacity:0.9;filter:drop-shadow(0 0 18px rgba(0,0,0,0.8))">
 </div>
 `
 });
