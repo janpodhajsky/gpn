@@ -1,50 +1,54 @@
-// Kapitola 7 – Dnešní perspektiva
+// Kapitola 7 – A co bylo dál ve východním bloku + Závěr
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: "Dnešní perspektiva",
-  subtitle: "Lidská práva a symbol slunečnice",
-  rights: [
-    { label: "Rovnost v důstojnosti a právech", ref: "čl. 1 LZPS ČR / čl. 20 Listiny základních práv EU" },
-    { label: "Integrace osob se zdravotním postižením", ref: "čl. 26 Listiny základních práv EU / Úmluva OSN CRPD (2006)" }
-  ],
+  title: "A co bylo dál ve východním bloku",
+  subtitle: "50. léta",
+  rights: [],
   video: null,
-  noteQ: "Co pro vás osobně znamená symbol slunečnice a pojem neviditelného postižení? Jak můžete přispět k inkluzivnější a empatičtější společnosti ve svém každodenním životě?",
-  content: `
-<p>
-  Připomínka programu T4 není pouze historická lekce – je výzvou pro přítomnost.
-  Osoby se zdravotním postižením čelí diskriminaci a neporozumění i dnes, přestože
-  jejich práva jsou právně chráněna.
+  extraInputs: [
+    { key: 'ch6-t4-today', label: 'Proč bychom měli mluvit o „T4" dnes?' }
+  ],
+  noteQ: "Co si z této brožury odnášíte? Změnil se váš pohled na práva lidí s postižením nebo na roli jednotlivce v systému?",
+  pages: [
+
+    // ── STRÁNKA 1 ──────────────────────────────────────────────────
+    `
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
+  V padesátých letech zájem o vyšetřování zločinů „eutanazie" značně opadl. Komunistický režim na jednu stranu hlasitě kritizoval nacistické praktiky, na druhou stranu případné kauzy spíše zamlčoval či se je snažil využít pro vlastní účel. Lze tedy říct, že psychicky nemocní a hendikepovaní stáli opět na okraji společnosti a tedy i zájmu. Navíc je známo, že komunistický režim mohl psychiatrické nemocnice využívat k izolaci „nepohodlných" lidí. Z tohoto důvodu by celé vyšetřování nacistické „eutanazie" mohlo otevřít otázku práv pacientů a zneužívání psychiatrického zařízení.
+</p>
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
+  Na rozdíl od pokusů o spravedlnost v západním Německu, ve východním bloku toto celé téma bylo ignorováno.
+</p>
+<p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem;line-height:1.6;font-style:italic">
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
-<h3 class="ch-h3">🌻 Symbol slunečnice</h3>
-<div class="ch-highlight-box">
-  <p>
-    Symbol slunečnice byl v roce <strong>2016</strong> zaveden Mezinárodním letištěm
-    v Southamptonu jako identifikátor pro osoby s <strong>neviditelným postižením</strong>.
-  </p>
-  <p class="ch-p">
-    Neviditelná postižení zahrnují: autismus, ADHD, Crohnovu nemoc, fibromyalgii,
-    chronické bolesti, srdeční choroby, psychická onemocnění, epilepsii a mnoho dalšího.
-  </p>
-  <p class="ch-p ch-accent">
-    „Mohu potřebovat pomoc, trpělivost nebo pochopení, i když to na mně není vidět."
-  </p>
+<h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:#e5e5e5;margin-bottom:0.75rem;letter-spacing:0.02em">Nyní otevíráme jednu důležitou otázku.</h4>
+<p style="line-height:1.8;color:#d1d5db;font-weight:600;margin-bottom:1rem">Proč bychom měli mluvit o „T4" dnes?</p>
+
+[[INPUTS]]
+`,
+
+    // ── STRÁNKA 2 – ZÁVĚR ──────────────────────────────────────────
+    `
+<h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;color:#EAB308;letter-spacing:0.06em;margin-bottom:1.5rem;text-transform:uppercase">Závěr</h3>
+
+<!-- Závěrečné video -->
+<div style="margin-bottom:1.75rem">
+  <div class="video-wrap">
+    <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/video závěr.mov"></video>
+  </div>
+  <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Závěrečné video (délka minuta a půl)</p>
 </div>
 
-<h3 class="ch-h3">Právní ochrana dnes</h3>
-<ul class="ch-legal-list">
-  <li>📜 <strong>Listina základních práv a svobod ČR</strong> — čl. 1, 3, 6, 7, 10, 31</li>
-  <li>🇪🇺 <strong>Listina základních práv EU</strong> — čl. 1, 20, 21, 26</li>
-  <li>🌍 <strong>Úmluva OSN o právech osob se zdravotním postižením (CRPD)</strong> — přijata 2006, ratifikována ČR 2009</li>
-</ul>
-<p class="ch-muted">
-  Přesto inkluze v praxi stále naráží na překážky – v přístupu ke vzdělání,
-  zaměstnání, zdravotní péči i veřejnému životu.
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
+  Kompletní zdroje i další odbornou literaturu k této problematice naleznete v sekci „zdroje". Děkujeme za přečtení!
 </p>
-<div style="margin:2rem 0">
-  <p style="font-size:0.72rem;color:#6b7280;margin-bottom:0.75rem;text-transform:uppercase;letter-spacing:0.05em">▶ Video</p>
-  <div class="video-wrap"><video controls src="video_zaver.mov" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px"></video></div>
-</div>
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:0">
+  Budeme rádi za zpětnou vazbu!<br>
+  <a href="mailto:eliska.podhajska@gmail.com" style="color:#EAB308;text-decoration:underline">eliska.podhajska@gmail.com</a>
+</p>
 `
+  ]
 });

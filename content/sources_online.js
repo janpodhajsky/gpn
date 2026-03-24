@@ -30,6 +30,7 @@ window.SOURCES_ONLINE = [
   {name: 'Wikipedia – Joseph Goebbels', url: 'https://cs.wikipedia.org/wiki/Joseph_Goebbels'},
 
   // Témata a pojmy
+  {name: 'Wikipedia – Akce T4', url: 'https://cs.wikipedia.org/wiki/Akce_T4'},
   {name: 'Wikipedia – Eutanázie', url: 'https://cs.wikipedia.org/wiki/Eutanazie'},
   {name: 'Wikipedia – Akce 14f13 (anglicky)', url: 'https://en.wikipedia.org/wiki/Action_14f13'},
   {name: 'Wikipedia – Vladimir Iljič Lenin', url: 'https://cs.wikipedia.org/wiki/Vladimir_Ilji%C4%8D_Lenin'},
