@@ -38,13 +38,9 @@ window.CHAPTERS_DATA.push({
     <div class="tl-year">1945</div>
     <div class="tl-label">Poválečná situace a (ne)potrestání viníků</div>
   </div>
-  <div class="tl-item">
+  <div class="tl-item" style="margin-bottom:0">
     <div class="tl-year">1950</div>
     <div class="tl-label">A co bylo dál ve východním bloku…</div>
-  </div>
-  <div class="tl-item" style="margin-bottom:0">
-    <div class="tl-year">2021</div>
-    <div class="tl-label">Problém dnešních dnů</div>
   </div>
 </div>
 
