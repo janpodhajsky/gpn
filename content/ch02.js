@@ -26,7 +26,7 @@ window.CHAPTERS_DATA.push({
 
 <div style="display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:1.75rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/Holka - klára.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:200px">
     <div style="position:relative;display:inline-block;background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">

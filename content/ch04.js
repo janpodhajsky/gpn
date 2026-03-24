@@ -28,7 +28,7 @@ window.CHAPTERS_DATA.push({
 <!-- Karl Brandt -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.5rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/Karl_Brandt - centrálně řízená eutanazie.png" alt="Karl Brandt" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/brandt.png" alt="Karl Brandt" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px;padding-top:0.25rem">
     <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Karl Brandt</strong> – Hitlerův osobní lékař</p>
@@ -38,7 +38,7 @@ window.CHAPTERS_DATA.push({
 <!-- Philipp Bouhler -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/Philipp Bouhler - centrálně řízená eutanazie.png" alt="Philipp Bouhler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/bouhler.png" alt="Philipp Bouhler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px;padding-top:0.25rem">
     <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Philipp Bouhler</strong> – vedoucí úředník nacistické strany</p>
@@ -67,7 +67,7 @@ window.CHAPTERS_DATA.push({
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
-    <img src="img/centrála T4 - centrálně řízená eutanazie.png" alt="Centrála T4" style="max-width:220px;max-height:180px;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/centrala-t4.png" alt="Centrála T4" style="max-width:220px;max-height:180px;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
 </div>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem;font-style:italic">Bývalá budova Akce T4 byla zbourána a na jejím místě byl postaven památník.</p>
@@ -98,7 +98,7 @@ window.CHAPTERS_DATA.push({
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
-    <img src="img/Pirna - centrálně řízená eutanazie.png" alt="Pirna Sonnenstein" style="max-width:220px;max-height:180px;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/pirna.png" alt="Pirna Sonnenstein" style="max-width:220px;max-height:180px;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
     <p style="font-size:0.72rem;color:#4b5563;margin-top:0.4rem;font-style:italic;max-width:220px">Místo plynové komory, Pirna Sonnenstein – jeden z vyhlazovacích ústavů</p>
   </div>
 </div>
@@ -121,7 +121,7 @@ window.CHAPTERS_DATA.push({
 <!-- Honza bublina -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/kluk - Honza.png" alt="Honza" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/honza.png" alt="Honza" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px">
     <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
@@ -193,7 +193,7 @@ window.CHAPTERS_DATA.push({
 
 <!-- Vyhlazovací střediska image -->
 <div style="margin-bottom:0.5rem;text-align:center">
-  <img src='img/Vyhlazovací střediska ,,eutanazie" - centrálně řízená eutanazie.png' alt="Vyhlazovací střediska eutanazie" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <img src='img/vyhlazovaci-strediska.png' alt="Vyhlazovací střediska eutanazie" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
   <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem">Vyhlazovací střediska „eutanazie"</p>
 </div>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:0">
@@ -222,7 +222,7 @@ window.CHAPTERS_DATA.push({
 <!-- Video biskupa Galena -->
 <div style="margin-bottom:0.6rem">
   <div class="video-wrap">
-    <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/kázaní  biskup Clemens August von Galen - centrálně řízená eutanazie.mov"></video>
+    <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/galen.mov"></video>
   </div>
   <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Projev, který pronesl biskup Clemens August von Galen (délka 5 minut, hlas generovaný)</p>
 </div>
@@ -237,7 +237,7 @@ window.CHAPTERS_DATA.push({
 
 <!-- Kříže image -->
 <div style="margin-bottom:0.4rem;text-align:center">
-  <img src="img/Kříže - centrálně řízená eutanazie.png" alt="70 000 křížů" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <img src="img/krize.png" alt="70 000 křížů" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
 </div>
 <p style="font-size:0.72rem;color:#4b5563;margin-bottom:2rem;font-style:italic">generováno</p>
 

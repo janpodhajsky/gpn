@@ -1,2 +1,4 @@
 zadani/
 move_pdf.ps1
+# Video files are too large for GitHub (>100 MB)
+img/*.mov

@@ -37,7 +37,7 @@ window.CHAPTERS_DATA.push({
 <!-- Závěrečné video -->
 <div style="margin-bottom:1.75rem">
   <div class="video-wrap">
-    <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/video závěr.mov"></video>
+    <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/zaver.mov"></video>
   </div>
   <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Závěrečné video (délka minuta a půl)</p>
 </div>

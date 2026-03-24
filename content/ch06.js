@@ -21,7 +21,7 @@ window.CHAPTERS_DATA.push({
 <!-- Klára bublina -->
 <div style="display:flex;align-items:flex-start;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap">
   <div style="flex-shrink:0">
-    <img src="img/Holka - klára.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
+    <img src="img/klara.png" alt="Klára" style="max-height:160px;mix-blend-mode:screen;opacity:0.92;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px">
     <div style="background:rgba(255,255,255,0.06);border:2px solid rgba(234,179,8,0.35);border-radius:18px 18px 18px 4px;padding:0.9rem 1.1rem">
@@ -88,7 +88,7 @@ function ch6Answer(n) {
 
 <!-- Strom -->
 <div style="margin-bottom:0.4rem;text-align:center">
-  <img src="img/strom - poválečná situace.png" alt="Strom s 250 000 listy" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <img src="img/strom.png" alt="Strom s 250 000 listy" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
 </div>
 <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem;margin-bottom:0.3rem;font-style:italic">Ku příkladu takto velká je koruna stromu, když je na ní 250 tisíc listů. Tolik bylo zbytečně zabito lidí…</p>
 <p style="font-size:0.72rem;color:#4b5563;margin-bottom:0;font-style:italic">generováno</p>
