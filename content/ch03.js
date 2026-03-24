@@ -79,17 +79,17 @@ window.CHAPTERS_DATA.push({
   </div>
 </div>
 
-<div style="margin-bottom:1.5rem">
+<div style="margin-bottom:1.5rem;text-align:center">
   <img src="img/propagandisticky leták 2 - propaganda.png" alt="Ukázka propagandistického materiálu" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
   <p style="font-size:0.78rem;color:#6b7280;margin-top:0.6rem;line-height:1.6;font-style:italic">PŘEKLAD: …protože Bůh nemůže chtít, aby se nemocní a churaví rozmnožovali v nemocných a churavých</p>
 </div>
 
-<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem">
+<div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1rem;align-items:stretch">
   <div style="flex:1;min-width:140px">
-    <img src="img/propagandistický letak original - propaganda.png" alt="Ukázka 1" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/propagandistický letak original - propaganda.png" alt="Ukázka 1" style="width:100%;height:100%;object-fit:contain;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
   <div style="flex:1;min-width:140px">
-    <img src="img/propagandistický leták  překlad- propaganda.png" alt="Ukázka 2" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
+    <img src="img/propagandistický leták  překlad- propaganda.png" alt="Ukázka 2" style="width:100%;height:100%;object-fit:contain;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 12px rgba(0,0,0,0.7))">
   </div>
 </div>
 `,
