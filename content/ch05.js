@@ -7,9 +7,9 @@ window.CHAPTERS_DATA.push({
   rights: [],
   video: null,
   extraInputs: [
-    { key: 'ch4-hippocrates', label: 'Klíčová slova z Hippokratovy přísahy, která jsou v rozporu s Akcí T4:' }
+    { key: 'ch4-hippocrates', label: 'Klíčová slova z Hippokratovy přísahy v rozporu s Akcí T4:' }
   ],
-  noteQ: "Proč myslíte, že se do vraždění zapojili lékaři – lidé, kteří složili přísahu „neškodit"? Co to říká o tom, jak mocenský systém může měnit morální jednání jednotlivce? Znáte příklady podobného selhání z dnešní doby?",
+  noteQ: "Proč myslíte, že se do vraždění zapojili lékaři – lidé, kteří složili přísahu „neškodit"? Co to říká o tom, jak mocenský systém může měnit morální jednání jednotlivce?",
   pages: [
 
     // ── STRÁNKA 1 ──────────────────────────────────────────────────
@@ -89,13 +89,11 @@ window.CHAPTERS_DATA.push({
   <img src="img/hrbitov.png" alt="Hřbitov u léčebny v Hadamaru" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
   <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem;font-style:italic">Hřbitov u léčebny v Hadamaru</p>
 </div>
-<p style="font-size:0.75rem;color:#4b5563;margin-bottom:0">
+<p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem">
   <a href="https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/</a>
 </p>
-`,
 
-    // ── STRÁNKA 2 ──────────────────────────────────────────────────
-    `
+<!-- Hippokratova přísaha -->
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">
   Níže je výňatek z Hippokratovy přísahy. Najděte v textu klíčová slova, která jsou dle Vás v kontextu dneška v rozporu s tím, co se v rámci „akce T4" dělo.
 </p>
