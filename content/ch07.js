@@ -24,8 +24,7 @@ window.CHAPTERS_DATA.push({
   ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
-<h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:#e5e5e5;margin-bottom:0.75rem;letter-spacing:0.02em">Nyní otevíráme jednu důležitou otázku.</h4>
-<p style="line-height:1.8;color:#d1d5db;font-weight:600;margin-bottom:1rem">Proč bychom měli mluvit o „T4" dnes?</p>
+<h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:#e5e5e5;margin-bottom:1rem;letter-spacing:0.02em">Nyní otevíráme jednu důležitou otázku.</h4>
 
 [[INPUTS]]
 `,
