@@ -2,14 +2,14 @@
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: "Decentralizace „eutanazie" a její tiché pokračování",
+  title: 'Decentralizace \u201eeutanazie\u201c a jej\u00ed tich\u00e9 pokra\u010dov\u00e1n\u00ed',
   subtitle: "1941 – 1945",
   rights: [],
   video: null,
   extraInputs: [
     { key: 'ch4-hippocrates', label: 'Klíčová slova z Hippokratovy přísahy v rozporu s Akcí T4:' }
   ],
-  noteQ: "Proč myslíte, že se do vraždění zapojili lékaři – lidé, kteří složili přísahu „neškodit"? Co to říká o tom, jak mocenský systém může měnit morální jednání jednotlivce?",
+  noteQ: 'Pro\u010d mysl\u00edte, \u017ee se do vra\u017ed\u011bn\u00ed zapojili l\u00e9ka\u0159i \u2013 lid\u00e9, kte\u0159\u00ed slo\u017eili p\u0159\u00edsahu \u201ene\u0161kodit\u201c? Co to \u0159\u00edk\u00e1 o tom, jak mocensk\u00fd syst\u00e9m m\u016f\u017ee m\u011bnit mor\u00e1ln\u00ed jedn\u00e1n\u00ed jednotlivce?',
   pages: [
 
     // ── STRÁNKA 1 ──────────────────────────────────────────────────
