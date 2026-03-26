@@ -524,6 +524,37 @@
 
   function goNext(qi) { state.quizQ = qi; renderQuestion(document.getElementById('main'), qi); }
 
+  function ch6Answer(n) {
+    [1,2,3].forEach(function(i) {
+      var btn = document.getElementById('ch6-opt'+i);
+      if (!btn) return;
+      btn.disabled = true;
+      if (i === 2) {
+        btn.style.borderColor = 'rgba(34,197,94,0.7)';
+        btn.style.background = 'rgba(34,197,94,0.08)';
+        btn.style.color = '#86efac';
+      } else if (i === n) {
+        btn.style.borderColor = 'rgba(239,68,68,0.7)';
+        btn.style.background = 'rgba(239,68,68,0.08)';
+        btn.style.color = '#fca5a5';
+      }
+    });
+    var fb = document.getElementById('ch6-feedback');
+    if (!fb) return;
+    fb.style.display = 'block';
+    if (n === 2) {
+      fb.style.background = 'rgba(34,197,94,0.08)';
+      fb.style.border = '1px solid rgba(34,197,94,0.35)';
+      fb.style.color = '#86efac';
+      fb.textContent = '✓ Správně!';
+    } else {
+      fb.style.background = 'rgba(239,68,68,0.08)';
+      fb.style.border = '1px solid rgba(239,68,68,0.35)';
+      fb.style.color = '#fca5a5';
+      fb.textContent = '✗ Správná odpověď je: Byli potrestáni nejvyšší představitelé, ale většina dalších lidí se trestu vyhnula.';
+    }
+  }
+
   // BROCHURE
   function renderBrochure(main) {
     main.innerHTML = `

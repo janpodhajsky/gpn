@@ -48,38 +48,6 @@ window.CHAPTERS_DATA.push({
   </div>
   <div id="ch6-feedback" style="display:none;margin-top:0.75rem;padding:0.75rem 1rem;border-radius:8px;font-size:0.875rem;line-height:1.6"></div>
 </div>
-<script>
-function ch6Answer(n) {
-  [1,2,3].forEach(function(i) {
-    var btn = document.getElementById('ch6-opt'+i);
-    if (!btn) return;
-    btn.disabled = true;
-    if (i === 2) {
-      btn.style.borderColor = 'rgba(34,197,94,0.7)';
-      btn.style.background = 'rgba(34,197,94,0.08)';
-      btn.style.color = '#86efac';
-    } else if (i === n) {
-      btn.style.borderColor = 'rgba(239,68,68,0.7)';
-      btn.style.background = 'rgba(239,68,68,0.08)';
-      btn.style.color = '#fca5a5';
-    }
-  });
-  var fb = document.getElementById('ch6-feedback');
-  if (!fb) return;
-  fb.style.display = 'block';
-  if (n === 2) {
-    fb.style.background = 'rgba(34,197,94,0.08)';
-    fb.style.border = '1px solid rgba(34,197,94,0.35)';
-    fb.style.color = '#86efac';
-    fb.textContent = '✓ Správně!';
-  } else {
-    fb.style.background = 'rgba(239,68,68,0.08)';
-    fb.style.border = '1px solid rgba(239,68,68,0.35)';
-    fb.style.color = '#fca5a5';
-    fb.textContent = '✗ Správná odpověď je: Byli potrestáni nejvyšší představitelé, ale většina dalších lidí se trestu vyhnula.';
-  }
-}
-</script>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:1.75rem">
   V rámci Norimberských procesů se sice nacistická „eutanazie" vyšetřovala, ale došlo k potrestání jen těch nejvyšších protagonistů (například Karl Brandt). Dále se však příliš na vyšetřování nedalo, a tak se často stávalo, že ředitelé ústavů a aktivně se podílející personál buď zcela unikli spravedlnosti nebo dostali směšně malé tresty. Největším paradoxem je fakt, že spousta pachatelů v „Akci T4" byla po válce nadále zaměstnávána ve zdravotnictví.<br><br>
