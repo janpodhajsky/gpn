@@ -10,7 +10,7 @@ window.CHAPTERS_DATA.push({
     { key: 'ch2-hitler', label: 'Napište tři přídavná jména, která podle Vás vystihují pohled Adolfa Hitlera na humanitu.' },
     { key: 'ch2-masaryk', label: 'Napište tři přídavná jména, která podle Vás vystihují pohled T.G. Masaryka na humanitu.' }
   ],
-  noteQ: "Na základě obsahu kapitoly: Jak propaganda mění vnímání hodnoty lidského života? Dokážete uvést příklad z dnešní doby, kdy jsou slova nebo obrazy používány k odlidštění určité skupiny?",
+  noteQ: "Na základě obsahu kapitoly: Jak propaganda mění vnímání hodnoty lidského života? Dokážete uvést ještě jiný případ?",
   pages: [
 
     // ── STRÁNKA 1 ──────────────────────────────────────────────────

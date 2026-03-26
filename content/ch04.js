@@ -135,6 +135,7 @@ window.CHAPTERS_DATA.push({
 </p>
 
 <!-- Šest vyhlazovacích ústavů -->
+<h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;margin-top:1.5rem;margin-bottom:0.75rem;color:#EAB308">Vyhlazovací ústavy</h3>
 <div style="display:flex;gap:0.6rem;flex-wrap:wrap;margin-bottom:2rem">
   <div style="border:1.5px solid rgba(239,68,68,0.4);border-radius:8px;padding:0.5rem 0.9rem;background:rgba(239,68,68,0.06)">
     <span style="color:#fca5a5;font-size:0.85rem;font-weight:600">Brandenburg</span>
@@ -231,7 +232,7 @@ window.CHAPTERS_DATA.push({
 </p>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">
-  Během pouhých 23 měsíců bylo usmrceno v šesti psychiatrických ústavech plynem přes 70 000 lidí (včetně dětí). Mezi oběťmi byli také váleční veteráni z první světové války trpící posttraumatickým stresem nebo hendikepem – ti samí muži, kteří kdysi bojovali za Německo.
+  Během pouhých 23 měsíců bylo usmrceno v šesti psychiatrických ústavech plynem přes 70 000 lidí (včetně dětí).
 </p>
 <p style="font-size:0.82rem;color:#9ca3af;margin-bottom:0.75rem;font-style:italic">Obrázek níže značí 70 000 křížů.</p>
 
