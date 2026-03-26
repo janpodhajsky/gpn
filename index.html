@@ -98,7 +98,21 @@
     }
     .btn-ghost:hover { color: #e5e5e5; }
 
+    #nav-hamburger { display: none; background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 0.35rem 0.6rem; color: #9ca3af; cursor: pointer; font-size: 1.1rem; line-height: 1; }
+    #nav-hamburger:hover { border-color: rgba(234,179,8,0.4); color: #EAB308; }
+    #nav-dropdown {
+      display: none; position: absolute; top: 60px; right: 0; left: 0;
+      background: #111; border-bottom: 1px solid rgba(234,179,8,0.15);
+      flex-direction: column; z-index: 150;
+    }
+    #nav-dropdown.open { display: flex; }
+    #nav-dropdown button { background: transparent; border: none; border-bottom: 1px solid rgba(255,255,255,0.05); padding: 0.9rem 1.5rem; color: #9ca3af; font-family: 'Inter', sans-serif; font-size: 0.95rem; text-align: left; cursor: pointer; transition: all 0.15s; }
+    #nav-dropdown button:hover { background: rgba(234,179,8,0.06); color: #EAB308; }
+    #nav-dropdown button.active { color: #EAB308; background: rgba(234,179,8,0.08); }
+
     @media (max-width: 768px) {
+      #nav-links { display: none !important; }
+      #nav-hamburger { display: block; }
       #sidebar { display: none; }
       #sidebar.open { display: block; position: fixed; top: 60px; left: 0; width: 260px; height: calc(100vh - 60px); z-index: 200; box-shadow: 4px 0 20px rgba(0,0,0,0.5); }
       #sidebar-overlay { display: none; position: fixed; inset: 0; top: 60px; background: rgba(0,0,0,0.6); z-index: 199; }
@@ -108,6 +122,7 @@
     }
     @media (min-width: 769px) {
       #mobile-chapter-bar { display: none !important; }
+      #nav-dropdown { display: none !important; }
     }
 
     @media print {
@@ -148,13 +163,21 @@
   <nav style="background:#111;border-bottom:1px solid rgba(234,179,8,0.15);position:sticky;top:0;z-index:100">
     <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;height:60px">
       <div class="serif" style="font-size:1.1rem;font-weight:700;color:#EAB308;letter-spacing:0.05em;cursor:pointer" onclick="navigate('home')">AKCE T4</div>
-      <div style="display:flex;gap:0.35rem">
+      <div id="nav-links" style="display:flex;gap:0.35rem">
         <button class="nav-btn" onclick="navigate('home')" id="nav-home">Úvod</button>
         <button class="nav-btn" onclick="navigate('brochure')" id="nav-brochure">Brožura</button>
         <button class="nav-btn" onclick="navigate('summary')" id="nav-summary">Shrnutí</button>
         <button class="nav-btn" onclick="navigate('materials')" id="nav-materials">Materiály</button>
         <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
       </div>
+      <button id="nav-hamburger" onclick="toggleNavMenu()" aria-label="Menu">☰</button>
+    </div>
+    <div id="nav-dropdown">
+      <button id="nav-home-m" onclick="navigate('home');toggleNavMenu()">Úvod</button>
+      <button id="nav-brochure-m" onclick="navigate('brochure');toggleNavMenu()">Brožura</button>
+      <button id="nav-summary-m" onclick="navigate('summary');toggleNavMenu()">Shrnutí</button>
+      <button id="nav-materials-m" onclick="navigate('materials');toggleNavMenu()">Materiály</button>
+      <button id="nav-sources-m" onclick="navigate('sources');toggleNavMenu()">Zdroje</button>
     </div>
   </nav>
 
@@ -366,6 +389,10 @@
     window.location.hash = needsQuiz ? 'quiz' : view;
   }
 
+  function toggleNavMenu() {
+    document.getElementById('nav-dropdown').classList.toggle('open');
+  }
+
   function setChapter(i) {
     state.chapterPage = 0;
     window.location.hash = 'brochure/' + i;
@@ -424,7 +451,11 @@
     ['home','brochure','summary','sources','materials'].forEach(v => {
       const el = document.getElementById('nav-' + v);
       if (el) el.classList.toggle('active', state.view === v);
+      const em = document.getElementById('nav-' + v + '-m');
+      if (em) em.classList.toggle('active', state.view === v);
     });
+    const dd = document.getElementById('nav-dropdown');
+    if (dd) dd.classList.remove('open');
     const main = document.getElementById('main');
     if (state.view === 'home') renderHome(main);
     else if (state.view === 'quiz') renderQuiz(main);
