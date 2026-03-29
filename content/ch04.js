@@ -1,8 +1,8 @@
-// Kapitola 4 – Centrálně řízená eutanázie
+// Kapitola 4 – Centrálně řízená euthanasie
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: "Centrálně řízená eutanázie",
+  title: "Centrálně řízená euthanasie",
   subtitle: "1939 – 1941",
   rights: [],
   video: null,
@@ -94,7 +94,7 @@ window.CHAPTERS_DATA.push({
 <div style="display:flex;align-items:flex-start;gap:1.5rem;margin-bottom:0.5rem;flex-wrap:wrap">
   <div style="flex:1;min-width:200px">
     <p style="line-height:1.8;color:#d1d5db;margin:0">
-      V letech 1939 – 1941, čili v průběhu takzvané „Centrálně řízené eutanazie", bylo v Německé říši zřízeno pro účely likvidace šest zařízení, coby předchůdců plynových komor. Tenkrát se však na smrt ještě používal oxid uhelnatý.
+      V letech 1939 – 1941, čili v průběhu takzvané „Centrálně řízené euthanasie", bylo v Německé říši zřízeno pro účely likvidace šest zařízení, coby předchůdců plynových komor. Tenkrát se však na smrt ještě používal oxid uhelnatý.
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
@@ -194,11 +194,11 @@ window.CHAPTERS_DATA.push({
 
 <!-- Vyhlazovací střediska image -->
 <div style="margin-bottom:0.5rem;text-align:center">
-  <img src='img/vyhlazovaci-strediska.png' alt="Vyhlazovací střediska eutanazie" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
-  <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem">Vyhlazovací střediska „eutanazie"</p>
+  <img src='img/vyhlazovaci-strediska.png' alt="Vyhlazovací střediska euthanasie" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
+  <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem">Vyhlazovací střediska „euthanasie"</p>
 </div>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:0">
-  <a href="https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/</a>
+  <a href="https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/euthanasie-1939---1941/</a>
 </p>
 `,
 
@@ -207,7 +207,7 @@ window.CHAPTERS_DATA.push({
 <h3 style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#EAB308;letter-spacing:0.08em;margin-bottom:1.25rem;text-transform:uppercase">Rozšíření programu</h3>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
-  Do této akce měli být zahrnuti od roku 1941 i nemocní a práce neschopní vězni z koncentračních táborů. Důvodem byl fakt, že SS ještě neměla technické vybavení na masové vyvražďování. Proto se H. Himmler obrátil na T4. Výběr provedli lékaři „T4" přímo v daném táboře, odtud probíhal transport do ústavu, kde byli vybraní vězni zabiti v plynových komorách. Tato akce měla označení „eutanazie invalidů", ale její spisovná značka byla „14f13" („14" jako příslušnost agendy, „f" jako úmrtí, „13" způsob úmrtí, zde zplynování). Tato akce trvala až do roku 1943, kdy byla zúžena jen na duševně nemocné v táborech, nikoliv však na ostatní práce neschopné. Odhadem jen v této akci bylo zavražděno mezi 15 000 – 20 000 znevýhodněných vězňů.
+  Do této akce měli být zahrnuti od roku 1941 i nemocní a práce neschopní vězni z koncentračních táborů. Důvodem byl fakt, že SS ještě neměla technické vybavení na masové vyvražďování. Proto se H. Himmler obrátil na T4. Výběr provedli lékaři „T4" přímo v daném táboře, odtud probíhal transport do ústavu, kde byli vybraní vězni zabiti v plynových komorách. Tato akce měla označení „euthanasie invalidů", ale její spisovná značka byla „14f13" („14" jako příslušnost agendy, „f" jako úmrtí, „13" způsob úmrtí, zde zplynování). Tato akce trvala až do roku 1943, kdy byla zúžena jen na duševně nemocné v táborech, nikoliv však na ostatní práce neschopné. Odhadem jen v této akci bylo zavražděno mezi 15 000 – 20 000 znevýhodněných vězňů.
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem">
   <a href="https://en.wikipedia.org/wiki/Action_14f13" target="_blank" style="color:#6b7280;text-decoration:underline">https://en.wikipedia.org/wiki/Action_14f13</a>
@@ -251,7 +251,7 @@ window.CHAPTERS_DATA.push({
 </div>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0">
-  Když „centrálně řízená eutanazie" skončila, personál se zkušenostmi se hodil do nově vznikající monstrózní akce „Akce Reinhard" neboli „Konečné řešení židovské otázky". Rovněž samotné vyhlazovací tábory kopírovali proces vraždění „Eutanazie".
+  Když „centrálně řízená euthanasie" skončila, personál se zkušenostmi se hodil do nově vznikající monstrózní akce „Akce Reinhard" neboli „Konečné řešení židovské otázky". Rovněž samotné vyhlazovací tábory kopírovali proces vraždění „Euthanasie".
 </p>
 `
   ]

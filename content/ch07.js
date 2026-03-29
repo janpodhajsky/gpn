@@ -15,7 +15,7 @@ window.CHAPTERS_DATA.push({
     // ── STRÁNKA 1 ──────────────────────────────────────────────────
     `
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
-  V padesátých letech zájem o vyšetřování zločinů „eutanazie" značně opadl. Komunistický režim na jednu stranu hlasitě kritizoval nacistické praktiky, na druhou stranu případné kauzy spíše zamlčoval či se je snažil využít pro vlastní účel. Lze tedy říct, že psychicky nemocní a hendikepovaní stáli opět na okraji společnosti a tedy i zájmu. Navíc je známo, že komunistický režim mohl psychiatrické nemocnice využívat k izolaci „nepohodlných" lidí. Z tohoto důvodu by celé vyšetřování nacistické „eutanazie" mohlo otevřít otázku práv pacientů a zneužívání psychiatrického zařízení.
+  V padesátých letech zájem o vyšetřování zločinů „euthanasie" značně opadl. Komunistický režim na jednu stranu hlasitě kritizoval nacistické praktiky, na druhou stranu případné kauzy spíše zamlčoval či se je snažil využít pro vlastní účel. Lze tedy říct, že psychicky nemocní a hendikepovaní stáli opět na okraji společnosti a tedy i zájmu. Navíc je známo, že komunistický režim mohl psychiatrické nemocnice využívat k izolaci „nepohodlných" lidí. Z tohoto důvodu by celé vyšetřování nacistické „euthanasie" mohlo otevřít otázku práv pacientů a zneužívání psychiatrického zařízení.
 </p>
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
   Na rozdíl od pokusů o spravedlnost v západním Německu, ve východním bloku toto celé téma bylo ignorováno.

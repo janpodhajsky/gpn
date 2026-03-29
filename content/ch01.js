@@ -28,11 +28,11 @@ window.CHAPTERS_DATA.push({
   </div>
   <div class="tl-item">
     <div class="tl-year">1939</div>
-    <div class="tl-label">Centrálně řízená eutanázie</div>
+    <div class="tl-label">Centrálně řízená euthanasie</div>
   </div>
   <div class="tl-item">
     <div class="tl-year">1941</div>
-    <div class="tl-label">Decentralizace „Eutanázie" a její tiché pokračování</div>
+    <div class="tl-label">Decentralizace „Euthanasie" a její tiché pokračování</div>
   </div>
   <div class="tl-item">
     <div class="tl-year">1945</div>

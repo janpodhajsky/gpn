@@ -1,8 +1,8 @@
-// Kapitola 5 – Decentralizace eutanazie a její tiché pokračování
+// Kapitola 5 – Decentralizace euthanasie a její tiché pokračování
 
 window.CHAPTERS_DATA = window.CHAPTERS_DATA || [];
 window.CHAPTERS_DATA.push({
-  title: 'Decentralizace \u201eeutanazie\u201c a jej\u00ed tich\u00e9 pokra\u010dov\u00e1n\u00ed',
+  title: 'Decentralizace \u201eeuthanasie\u201c a jej\u00ed tich\u00e9 pokra\u010dov\u00e1n\u00ed',
   subtitle: "1941 – 1945",
   rights: [],
   video: null,
@@ -34,7 +34,7 @@ window.CHAPTERS_DATA.push({
 </div>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
-  Takzvaná „decentralizovaná eutanazie" pokračovala v mnoha léčebnách v Německu i v Protektorátu. V praxi to znamenalo, že lékaři a zdravotnický personál pacienty zabíjeli „vlastníma rukama" a to prakticky i přes lékařskou přísahu. Usmrcení probíhalo především vyhladověním, cíleným zanedbáváním péče, předávkováním léky či kombinací všech tří způsobů. V roce 1942 byl vydán tzv. hladový výnos. Dle výnosu byla v ústavech zavedena hladová strava, která byla založena pouze na vařené zelenině a trochu brambor. Jídlo se vařilo tak dlouho, dokud jeho nutriční hodnota byla minimální. Tak pacienti hladověli, i když jedli. Navíc těch málo potravin v některých ústavech ještě rozkrádal personál. Spousta léčeben byla později převzata pro válečné lazarety. Pacienti tak byli umisťováni do jiných léčeben nad rámec přípustné kapacity. Často se tedy stávalo, že pacienti museli spát doslova „tam, kde bylo místo", většinou tedy na studené zemi. Na hygienu se příliš nedbalo a podvýživa byla velice častá, takže i proto velké množství zesláblých pacientů v ústavech zemřelo na následky nemocí (zejména na tuberkulózu).
+  Takzvaná „decentralizovaná euthanasie" pokračovala v mnoha léčebnách v Německu i v Protektorátu. V praxi to znamenalo, že lékaři a zdravotnický personál pacienty zabíjeli „vlastníma rukama" a to prakticky i přes lékařskou přísahu. Usmrcení probíhalo především vyhladověním, cíleným zanedbáváním péče, předávkováním léky či kombinací všech tří způsobů. V roce 1942 byl vydán tzv. hladový výnos. Dle výnosu byla v ústavech zavedena hladová strava, která byla založena pouze na vařené zelenině a trochu brambor. Jídlo se vařilo tak dlouho, dokud jeho nutriční hodnota byla minimální. Tak pacienti hladověli, i když jedli. Navíc těch málo potravin v některých ústavech ještě rozkrádal personál. Spousta léčeben byla později převzata pro válečné lazarety. Pacienti tak byli umisťováni do jiných léčeben nad rámec přípustné kapacity. Často se tedy stávalo, že pacienti museli spát doslova „tam, kde bylo místo", většinou tedy na studené zemi. Na hygienu se příliš nedbalo a podvýživa byla velice častá, takže i proto velké množství zesláblých pacientů v ústavech zemřelo na následky nemocí (zejména na tuberkulózu).
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem;line-height:1.6;font-style:italic">
   ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
@@ -44,7 +44,7 @@ window.CHAPTERS_DATA.push({
 <div style="border:1.5px solid rgba(234,179,8,0.4);border-radius:10px;padding:1.25rem 1.5rem;margin-bottom:2rem;background:rgba(234,179,8,0.05)">
   <h4 style="font-family:'Playfair Display',serif;font-size:0.95rem;color:#EAB308;margin-bottom:0.75rem;letter-spacing:0.05em;text-transform:uppercase">CO SI ODNÁŠÍME?</h4>
   <p style="line-height:1.8;color:#d1d5db;margin:0">
-    Je důležité si uvědomit, že tato akce nezprostředkovávala žádné „důstojné ukončení života", jak se o eutanazii vede debata dnes. Byla to nedobrovolná smrt a genocida, kdy člověk často trpěl a umíral dlouho.
+    Je důležité si uvědomit, že tato akce nezprostředkovávala žádné „důstojné ukončení života", jak se o euthanasii vede debata dnes. Byla to nedobrovolná smrt a genocida, kdy člověk často trpěl a umíral dlouho.
   </p>
 </div>
 
@@ -54,12 +54,12 @@ window.CHAPTERS_DATA.push({
   <img src="img/deti.png" alt="Děti" style="max-width:100%;border-radius:6px;opacity:0.9;filter:drop-shadow(0 4px 16px rgba(0,0,0,0.7))">
 </div>
 
-<!-- Video příběhu dětské eutanazie -->
+<!-- Video příběhu dětské euthanasie -->
 <div style="margin-bottom:0.6rem">
   <div class="video-wrap">
     <video controls style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:8px" src="img/pribeh-deti.mov"></video>
   </div>
-  <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Příběh oběti „dětské eutanazie" (3 minuty, překlad i hlas generovaný)</p>
+  <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Příběh oběti „dětské euthanasie" (3 minuty, překlad i hlas generovaný)</p>
 </div>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem">
   <a href="https://www.stsg.de/cms/sites/default/files/upload/dokumente/pdf/1_biografie_heidrich.pdf" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.stsg.de/cms/sites/default/files/upload/dokumente/pdf/1_biografie_heidrich.pdf</a>
@@ -90,7 +90,7 @@ window.CHAPTERS_DATA.push({
   <p style="font-size:0.82rem;color:#9ca3af;margin-top:0.5rem;font-style:italic">Hřbitov u léčebny v Hadamaru</p>
 </div>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem">
-  <a href="https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/</a>
+  <a href="https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/" target="_blank" style="color:#6b7280;text-decoration:underline">https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/euthanasie-1939---1941/</a>
 </p>
 
 <!-- Hippokratova přísaha -->

@@ -50,7 +50,7 @@ window.CHAPTERS_DATA.push({
 </div>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:1.75rem">
-  V rámci Norimberských procesů se sice nacistická „eutanazie" vyšetřovala, ale došlo k potrestání jen těch nejvyšších protagonistů (například Karl Brandt). Dále se však příliš na vyšetřování nedalo, a tak se často stávalo, že ředitelé ústavů a aktivně se podílející personál buď zcela unikli spravedlnosti nebo dostali směšně malé tresty. Největším paradoxem je fakt, že spousta pachatelů v „Akci T4" byla po válce nadále zaměstnávána ve zdravotnictví.<br><br>
+  V rámci Norimberských procesů se sice nacistická „euthanasie" vyšetřovala, ale došlo k potrestání jen těch nejvyšších protagonistů (například Karl Brandt). Dále se však příliš na vyšetřování nedalo, a tak se často stávalo, že ředitelé ústavů a aktivně se podílející personál buď zcela unikli spravedlnosti nebo dostali směšně malé tresty. Největším paradoxem je fakt, že spousta pachatelů v „Akci T4" byla po válce nadále zaměstnávána ve zdravotnictví.<br><br>
   Celkový počet obětí „Akce T4" (včetně neoficiálního pokračování) se odhaduje na 200 – 250 tisíc. Ale jednotlivé údaje se velmi liší.
 </p>
 

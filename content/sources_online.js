@@ -20,21 +20,21 @@ window.SOURCES_ONLINE = [
   {name: 'Wikipedia – Vladimir Iljič Lenin', url: 'https://cs.wikipedia.org/wiki/Vladimir_Ilji%C4%8D_Lenin'},
 
   // Akce T4 – česky
-  {name: 'Holocaust.cz – Eutanázie 1939–1941', url: 'https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/'},
-  {name: 'Medium Seznam – Zapomenuté oběti nacistické eutanázie', url: 'https://medium.seznam.cz/clanek/ceska-historie-zapomenute-obeti-nacisticky-program-eutanazie-znamenal-smrt-i-pro-stovky-obcanu-ceskoslovenska-119698'},
+  {name: 'Holocaust.cz – Euthanasie 1939–1941', url: 'https://www.holocaust.cz/dejiny/holocaust/historicky-kontext/eutanazie-1939---1941/'},
+  {name: 'Medium Seznam – Zapomenuté oběti nacistické euthanasie', url: 'https://medium.seznam.cz/clanek/ceska-historie-zapomenute-obeti-nacisticky-program-eutanazie-znamenal-smrt-i-pro-stovky-obcanu-ceskoslovenska-119698'},
   {name: 'ČRo Plus – Pocta zapomenutým obětem nacistů (2014)', url: 'https://plus.rozhlas.cz/pocta-zapomenutym-obetem-nacistu-6570351'},
   {name: 'ČRo Plus – Akce T4 byla příprava na holocaust (historik Fedorovič)', url: 'https://plus.rozhlas.cz/akce-t4-byla-priprava-na-holocaust-rika-historik-fedorovic-7568480'},
-  {name: 'Deník – Hitler zastavil eutanázii po kázání biskupa von Galena', url: 'https://www.denik.cz/ze_sveta/hitler-eutanazie.html'},
+  {name: 'Deník – Hitler zastavil euthanasii po kázání biskupa von Galena', url: 'https://www.denik.cz/ze_sveta/hitler-eutanazie.html'},
   {name: 'Muži v Česku – Smrtelná Akce T4', url: 'https://www.muzivcesku.cz/galerie/smrtelna-akce-t4-mirila-na-postizene-lidi-nevhodne-pro-nacisticke-nemecko/'},
   {name: 'ÚSTR – Paměť a dějiny: Akce T4 (PDF)', url: 'https://www.ustrcr.cz/data/pdf/pamet-dejiny/pad1502/056-066.pdf'},
 
   // Propaganda a film
-  {name: 'USHMM – Propagandistické materiály programu eutanázie (anglicky)', url: 'https://encyclopedia.ushmm.org/content/en/gallery/propaganda-for-the-euthanasia-program'},
+  {name: 'USHMM – Propagandistické materiály programu euthanasie (anglicky)', url: 'https://encyclopedia.ushmm.org/content/en/gallery/propaganda-for-the-euthanasia-program'},
   {name: 'Holocaust Museum Houston – Lékařská etika a holocaust (anglicky)', url: 'https://hmh.org/event/medical-ethics-and-the-holocaust-how-healing-becomes-killing-eugenics-euthanasia-and-extermination/'},
   {name: 'Dokina – Žaluji / Ich klage an (propagandistický film, 1941)', url: 'https://dokina.tiscali.cz/film/ich-klage-an-b428263'},
 
   // Témata a pojmy
-  {name: 'Wikipedia – Eutanázie', url: 'https://cs.wikipedia.org/wiki/Eutanazie'},
+  {name: 'Wikipedia – Euthanasie', url: 'https://cs.wikipedia.org/wiki/Eutanazie'},
   {name: 'Wikipedia – Akce 14f13 (anglicky)', url: 'https://en.wikipedia.org/wiki/Action_14f13'},
 
   // Právo

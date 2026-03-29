@@ -1,17 +1,7 @@
-// Úvodní kvíz – 5 otázek
+// Úvodní kvíz – 4 otázky
 // correct: index správné odpovědi (0 = první, 1 = druhá, ...)
 
 window.QUIZ_DATA = [
-  {
-    q: "Přibližně kolik lidí bylo během Akce T4 zavražděno?",
-    opts: [
-      "Desítky tisíc",
-      "Stovky až tisíce",
-      "Stovky tisíc"
-    ],
-    correct: 2,
-    expl: "Odhaduje se, že bylo zavražděno 200 000 až 300 000 osob. Program byl rozsáhlejší, než se dlouho veřejně uznávalo."
-  },
   {
     q: `Proč se program nazýval „T4"?`,
     opts: [
