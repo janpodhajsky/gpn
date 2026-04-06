@@ -60,7 +60,7 @@ window.CHAPTERS_DATA.push({
 <div style="display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start;margin-bottom:1.5rem">
   <div style="flex:1;min-width:200px">
     <p style="line-height:1.8;color:#d1d5db">
-      Adolf Hitler se ze začátku bál odporu proti plánované akci. A tak muselo vzniknout něco, co by se slovy J. Goebbelse <em>„vklínilo do vědomí každého obyvatele"</em>. Rasová propaganda byla doslova všude: v tisku, ve filmu, v rozhlase, ale také při školním vyučování. Většinou se ukazovali ilustrace mající dokládat naprosto přehnané náklady sociální podpory. Jindy zase byli nemocní lidé odlidštěni a zobrazováni jako zvířata.
+      Adolf Hitler se ze začátku bál odporu proti plánované akci. A tak muselo vzniknout něco, co by se slovy J. Goebbelse <em>„vklínilo do vědomí každého obyvatele"</em>. Rasová propaganda byla doslova všude: v tisku, ve filmu, v rozhlase, ale také při školním vyučování. Většinou se ukazovaly ilustrace mající dokládat naprosto přehnané náklady sociální podpory. Jindy zase byli nemocní lidé odlidštěni a zobrazováni jako zvířata.
     </p>
   </div>
   <div style="flex-shrink:0;text-align:center">
@@ -108,7 +108,7 @@ window.CHAPTERS_DATA.push({
 </div>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">
-  V Československu byl během chemických pokusů těžce poraněn čtrnáctiletý chlapec. Jeho matka společně se svou sestrou bez vědomí otce chlapce chladnokrevně zastřelili pěti ranami z pistole. Vykřičníkem nezůstává jen fakt, kolik ran bylo na zraněného chlapce použito a že otec o tomto plánu nevěděl, zarážející je i fakt, že jedna z žen byla lékařkou. Z činu však byly omilostněny.
+  V Československu byl během chemických pokusů těžce poraněn čtrnáctiletý chlapec. Jeho matka společně se svou sestrou bez vědomí otce chlapce chladnokrevně zastřelily pěti ranami z pistole. Vykřičníkem nezůstává jen fakt, kolik ran bylo na zraněného chlapce použito a že otec o tomto plánu nevěděl, zarážející je i fakt, že jedna z žen byla lékařkou. Z činu však byly omilostněny.
 </p>
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
   V Německu se zase do propagandy hodil případ rolníka, který si vzal z ústavu svého postiženého syna. Avšak poté, co se dozvěděl, že jeho syn bude prohlášen za nebezpečného, ho raději sám zastřelil. Propagandistické články se otce zastávaly a poukazovaly na <em>„zdravý selský rozum"</em>.
