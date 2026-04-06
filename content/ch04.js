@@ -251,7 +251,7 @@ window.CHAPTERS_DATA.push({
 </div>
 
 <p style="line-height:1.8;color:#d1d5db;margin-bottom:0">
-  Když „centrálně řízená euthanasie" skončila, personál se zkušenostmi se hodil do nově vznikající monstrózní akce „Akce Reinhard" neboli „Konečné řešení židovské otázky". Rovněž samotné vyhlazovací tábory kopírovali proces vraždění „Euthanasie".
+  Když „centrálně řízená euthanasie" skončila, personál se zkušenostmi se hodil do nově vznikající monstrózní akce „Akce Reinhard" neboli „Konečné řešení židovské otázky". Rovněž samotné vyhlazovací tábory kopírovaly proces vraždění „Euthanasie".
 </p>
 `
   ]
