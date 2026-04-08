@@ -447,8 +447,33 @@
     if (ov) ov.classList.toggle('open');
   }
 
+  // ===================== CROSSFADE ANIMATION =====================
+  let _animTimer = null;
+
+  function initCrossfade(id, count, interval) {
+    if (_animTimer) { clearInterval(_animTimer); _animTimer = null; }
+    const el = document.getElementById(id);
+    if (!el) return;
+    const imgs = [];
+    for (let i = 1; i <= count; i++) {
+      const img = document.createElement('img');
+      img.src = 'anim/' + i + '.png';
+      img.style.cssText = 'position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease-in-out;';
+      el.appendChild(img);
+      imgs.push(img);
+    }
+    let cur = 0;
+    imgs[0].style.opacity = '1';
+    _animTimer = setInterval(() => {
+      imgs[cur].style.opacity = '0';
+      cur = (cur + 1) % count;
+      imgs[cur].style.opacity = '1';
+    }, interval);
+  }
+
   // ===================== RENDER =====================
   function render() {
+    if (_animTimer) { clearInterval(_animTimer); _animTimer = null; }
     ['home','brochure','summary','sources','materials'].forEach(v => {
       const el = document.getElementById('nav-' + v);
       if (el) el.classList.toggle('active', state.view === v);
@@ -469,6 +494,7 @@
   // HOME
   function renderHome(main) {
     main.innerHTML = `<div class="fade-in" style="max-width:900px;margin:0 auto;padding:4rem 1.5rem 6rem">
+      <div id="anim-strip" style="position:relative;width:100%;max-width:600px;height:380px;margin:0 auto 3.5rem;border-radius:10px;overflow:hidden;background:#111;"></div>
       <div style="text-align:center;padding-bottom:3rem">
         <h1 class="serif" style="font-size:clamp(2rem,6vw,3.8rem);font-weight:900;line-height:1.1;letter-spacing:-0.02em;color:#fff;margin-bottom:1.5rem">NEZAPOMENOUT,<br><span id="porozumet-word" style="color:#EAB308;position:relative;cursor:default;user-select:none" ondblclick="spawnHearts(this)">POROZUMĚT</span></h1>
         <p style="font-size:1rem;line-height:1.75;max-width:720px;margin:0 auto 2.5rem;color:#9ca3af">Naučná brožura s názvem <strong style="color:#d1d5db">,,Svět bez těch druhých, svět bez nás všech"</strong> je věnována obětem nacistického programu <strong style="color:#d1d5db">,,Akce T4 - euthanasie"</strong>, který cílil na vraždění duševně a tělesně postižených osob. Naučná brožura se rovněž snaží interaktivně a kritickým myšlením upozornit na možné opětovné problémy. Pracuje s kapitolami, u kterých je vždy vyznačeno jaká současná lidská práva z listiny práv a svobod České republiky a Evropské unie byla porušena.<br><br>Lze ji vyplnit online nebo si ji stáhnout v sekci <strong style="color:#d1d5db">,,materiály"</strong> (obsah obou variant je totožný).<br><br>Jako první si však vyplňte krátký test, který nemá za cíl zkoušet vás, ale uvést vás do tématu.</p>
@@ -478,6 +504,7 @@
         </div>
       </div>
     </div>`;
+    initCrossfade('anim-strip', 8, 3500);
   }
 
   // QUIZ
