@@ -158,6 +158,7 @@
     .ch-legal-list { list-style: none; padding: 0; line-height: 1.9; }
     .ch-legal-list li { padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
     .ch-legal-list li:last-child { border-bottom: none; }
+
   </style>
 </head>
 <body>
@@ -170,6 +171,7 @@
         <button class="nav-btn" onclick="navigate('summary')" id="nav-summary">Shrnutí</button>
         <button class="nav-btn" onclick="navigate('materials')" id="nav-materials">Materiály</button>
         <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
+        <button class="nav-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfh30Fh0s0YwmqB8m06piKh3JcRS87k5-leo4kd4xmREyn_Hg/viewform','_blank')" id="nav-feedback">Zpětná vazba</button>
       </div>
       <button id="nav-hamburger" onclick="toggleNavMenu()" aria-label="Menu">☰</button>
     </div>
@@ -179,6 +181,7 @@
       <button id="nav-summary-m" onclick="navigate('summary');toggleNavMenu()">Shrnutí</button>
       <button id="nav-materials-m" onclick="navigate('materials');toggleNavMenu()">Materiály</button>
       <button id="nav-sources-m" onclick="navigate('sources');toggleNavMenu()">Zdroje</button>
+      <button id="nav-feedback-m" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfh30Fh0s0YwmqB8m06piKh3JcRS87k5-leo4kd4xmREyn_Hg/viewform','_blank');toggleNavMenu()">Zpětná vazba</button>
     </div>
   </nav>
 

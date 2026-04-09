@@ -41,13 +41,17 @@ window.CHAPTERS_DATA.push({
   <p style="font-size:0.75rem;color:#4b5563;margin-top:0.5rem">Závěrečné video (délka minuta a půl)</p>
 </div>
 
-<p style="line-height:1.8;color:#d1d5db;margin-bottom:0.5rem">
+<p style="line-height:1.8;color:#d1d5db;margin-bottom:1.25rem">
   Kompletní zdroje i další odbornou literaturu k této problematice naleznete v sekci „zdroje". Děkujeme za přečtení!
 </p>
-<p style="line-height:1.8;color:#d1d5db;margin-bottom:0">
-  Budeme rádi za zpětnou vazbu!<br>
-  <a href="mailto:eliska.podhajska@gmail.com" style="color:#EAB308;text-decoration:underline">eliska.podhajska@gmail.com</a>
-</p>
+
+<div style="background:rgba(234,179,8,0.07);border:1px solid rgba(234,179,8,0.25);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:0">
+  <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.75rem">
+    Tento web je ve fázi začátku, do budoucna plánujeme jeho rozšíření. Pomozte nám vyplněním krátkého zpětnovazebního formuláře v záložce <strong style="color:#EAB308">„zpětná vazba"</strong>.
+  </p>
+  <p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">Děkujeme!</p>
+  <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#EAB308;font-style:italic;margin-bottom:0">Nezapomenout – porozumět</p>
+</div>
 `
   ]
 });
