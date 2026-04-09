@@ -47,7 +47,7 @@ window.CHAPTERS_DATA.push({
 
 <div style="background:rgba(234,179,8,0.07);border:1px solid rgba(234,179,8,0.25);border-radius:8px;padding:1.5rem 1.75rem;margin-bottom:0">
   <p style="line-height:1.8;color:#d1d5db;margin-bottom:0.75rem">
-    Tento web je ve fázi začátku, do budoucna plánujeme jeho rozšíření. Pomozte nám vyplněním krátkého zpětnovazebního formuláře v záložce <strong style="color:#EAB308">„zpětná vazba"</strong>.
+    Tento web je ve fázi začátku, do budoucna plánujeme jeho rozšíření. Pomozte nám vyplněním krátkého <a href="https://docs.google.com/forms/d/e/1FAIpQLSfh30Fh0s0YwmqB8m06piKh3JcRS87k5-leo4kd4xmREyn_Hg/viewform?usp=publish-editor" target="_blank" style="color:#EAB308;text-decoration:underline">zpětnovazebního formuláře (klikněte)</a>.
   </p>
   <p style="line-height:1.8;color:#d1d5db;margin-bottom:1rem">Děkujeme!</p>
   <p style="font-family:'Playfair Display',serif;font-size:1.05rem;color:#EAB308;font-style:italic;margin-bottom:0">Nezapomenout – porozumět</p>
