@@ -31,7 +31,7 @@ window.CHAPTERS_DATA.push({
     <img src="img/brandt.png" alt="Karl Brandt" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px;padding-top:0.25rem">
-    <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Karl Brandt</strong> – Hitlerův osobní lékař</p>
+    <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Karl Brandt</strong> – Hitlerův doprovázející  lékař</p>
   </div>
 </div>
 
@@ -41,7 +41,7 @@ window.CHAPTERS_DATA.push({
     <img src="img/bouhler.png" alt="Philipp Bouhler" style="max-height:160px;mix-blend-mode:screen;opacity:0.88;filter:drop-shadow(0 0 14px rgba(0,0,0,0.9))">
   </div>
   <div style="flex:1;min-width:180px;padding-top:0.25rem">
-    <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Philipp Bouhler</strong> – vedoucí úředník nacistické strany</p>
+    <p style="color:#e5e5e5;line-height:1.7;margin:0"><strong style="color:#fff">Philipp Bouhler</strong> – vedoucí úředník nacistické strany a vedoucí Kanceláře vůdce</p>
   </div>
 </div>
 
