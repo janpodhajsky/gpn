@@ -15,7 +15,7 @@ window.CHAPTERS_DATA.push({
   Německým pacientům na českém území se rovněž nevyhnul odsun.
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem;line-height:1.6;font-style:italic">
-  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Orbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
 <!-- Klára bublina -->

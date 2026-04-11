@@ -114,7 +114,7 @@ window.CHAPTERS_DATA.push({
   V Německu se zase do propagandy hodil případ rolníka, který si vzal z ústavu svého postiženého syna. Avšak poté, co se dozvěděl, že jeho syn bude prohlášen za nebezpečného, ho raději sám zastřelil. Propagandistické články se otce zastávaly a poukazovaly na <em>„zdravý selský rozum"</em>.
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem;line-height:1.6">
-  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Orbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
 <div style="border:1.5px solid rgba(234,179,8,0.35);border-radius:10px;padding:1.25rem 1.5rem;background:rgba(234,179,8,0.05);margin-bottom:2rem">

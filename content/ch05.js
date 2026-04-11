@@ -37,7 +37,7 @@ window.CHAPTERS_DATA.push({
   Takzvaná „decentralizovaná euthanasie" pokračovala v mnoha léčebnách v Německu i v Protektorátu. V praxi to znamenalo, že lékaři a zdravotnický personál pacienty zabíjeli „vlastníma rukama" a to prakticky i přes lékařskou přísahu. Usmrcení probíhalo především vyhladověním, cíleným zanedbáváním péče, předávkováním léky či kombinací všech tří způsobů. V roce 1942 byl vydán tzv. hladový výnos. Dle výnosu byla v ústavech zavedena hladová strava, která byla založena pouze na vařené zelenině a trochu brambor. Jídlo se vařilo tak dlouho, dokud jeho nutriční hodnota nebyla minimální. Tak pacienti hladověli, i když jedli. Navíc těch málo potravin v některých ústavech ještě rozkrádal personál. Spousta léčeben byla později převzata pro válečné lazarety. Pacienti tak byli umisťováni do jiných léčeben nad rámec přípustné kapacity. Často se tedy stávalo, že pacienti museli spát doslova „tam, kde bylo místo", většinou tedy na studené zemi. Na hygienu se příliš nedbalo a podvýživa byla velice častá, takže i proto velké množství zesláblých pacientů v ústavech zemřelo na následky nemocí (zejména na tuberkulózu).
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:1.75rem;line-height:1.6;font-style:italic">
-  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Orbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
 <!-- CO SI ODNÁŠÍME -->

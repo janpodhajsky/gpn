@@ -21,7 +21,7 @@ window.CHAPTERS_DATA.push({
   Na rozdíl od pokusů o spravedlnost v západním Německu, ve východním bloku toto celé téma bylo ignorováno.
 </p>
 <p style="font-size:0.75rem;color:#4b5563;margin-bottom:2rem;line-height:1.6;font-style:italic">
-  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Odbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
+  ŠIMŮNEK, Michal V. a NOVÁK, Milan. <em>Orbity smrti.</em> Praha: Academia, 2023. ISBN 978-80-200-3470-0.
 </p>
 
 <h4 style="font-family:'Playfair Display',serif;font-size:1rem;color:#e5e5e5;margin-bottom:1rem;letter-spacing:0.02em">Nyní otevíráme jednu důležitou otázku.</h4>
