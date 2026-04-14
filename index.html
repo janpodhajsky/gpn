@@ -934,7 +934,10 @@
   }
 
   function setLang(lang) {
-    // Persist preference
+    // Persist preference and reload — GT reads the cookie on fresh page load
+    // with autoDisplay:false, so the toolbar never appears.
+    // (Combo-select manipulation triggers "interactive translation" which
+    //  forces GT to show its toolbar regardless of autoDisplay:false.)
     if (lang === 'cs') {
       localStorage.removeItem(_LANG_KEY);
       _clearGTCookie();
@@ -942,19 +945,7 @@
       localStorage.setItem(_LANG_KEY, lang);
       _setGTCookie(lang);
     }
-
-    // Prefer combo-select manipulation (no page reload, instant switch).
-    // Falls back to reload if GT hasn't initialised yet.
-    var select = document.querySelector('select.goog-te-combo');
-    if (select) {
-      select.value = (lang === 'cs') ? '' : lang;
-      var evt = document.createEvent('HTMLEvents');
-      evt.initEvent('change', false, true);
-      select.dispatchEvent(evt);
-      _updateLangUI(lang);
-    } else {
-      location.reload();
-    }
+    location.reload();
   }
 
   // Set cookie from localStorage BEFORE GT script initialises so it picks up
@@ -972,16 +963,32 @@
   // Once GT combo-select exists: (a) kill toolbar aggressively,
   // (b) sync our UI if GT changes language independently (e.g. "Show original").
   function _onGTReady(combo) {
-    // Kill toolbar: hide iframe + strip inline margin-top GT adds to <body>
+    // Kill toolbar: use setProperty('important') to beat GT's inline styles,
+    // strip body offsets GT injects, and watch both body children and the
+    // iframe's own style attribute so it can't re-show itself.
     function _killBar() {
       var f = document.querySelector('.goog-te-banner-frame');
-      if (f) { f.style.cssText = 'display:none!important'; }
+      if (f) {
+        f.style.setProperty('display', 'none', 'important');
+        f.style.setProperty('visibility', 'hidden', 'important');
+        f.style.setProperty('height', '0', 'important');
+      }
       document.body.style.removeProperty('top');
       document.body.style.removeProperty('margin-top');
     }
     _killBar();
-    // Watch for future toolbar insertions (GT re-inserts it on language switch)
-    new MutationObserver(_killBar).observe(document.body, { childList: true });
+    // Watch for toolbar insertion into body
+    new MutationObserver(function(ms) {
+      ms.forEach(function(m) {
+        m.addedNodes.forEach(function(n) {
+          if (n.classList && n.classList.contains('goog-te-banner-frame')) {
+            _killBar();
+            // Also watch this specific node's style attribute
+            new MutationObserver(_killBar).observe(n, { attributes: true, attributeFilter: ['style'] });
+          }
+        });
+      });
+    }).observe(document.body, { childList: true });
 
     // Sync UI when GT changes language without our buttons (e.g. "Show original")
     combo.addEventListener('change', function() {
