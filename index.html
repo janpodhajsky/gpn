@@ -185,7 +185,8 @@
 
     /* ---- Suppress Google Translate default toolbar ---- */
     .goog-te-banner-frame { display: none !important; }
-    .skiptranslate { display: none !important; }
+    #goog-gt-tt { display: none !important; }
+    .goog-tooltip, .goog-tooltip-content { display: none !important; }
     body { top: 0 !important; }
 
   </style>
@@ -899,45 +900,76 @@
     return localStorage.getItem(_LANG_KEY) || 'cs';
   }
 
-  function setLang(lang) {
-    var expired = '; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
-    if (lang === 'cs') {
-      localStorage.removeItem(_LANG_KEY);
-      // Clear cookie for all possible domain variants
-      document.cookie = 'googtrans=' + expired;
-      document.cookie = 'googtrans=' + expired + '; domain=' + location.hostname;
-      document.cookie = 'googtrans=' + expired + '; domain=.' + location.hostname;
-    } else {
-      localStorage.setItem(_LANG_KEY, lang);
-      var val = '/cs/' + lang;
-      document.cookie = 'googtrans=' + val + '; path=/';
-      document.cookie = 'googtrans=' + val + '; path=/; domain=.' + location.hostname;
-    }
-    location.reload();
+  // Returns all domain variants to try when setting/clearing the cookie.
+  // GT typically uses the root domain (.nezapomenout-porozumet.cz),
+  // even when the site is served from www.nezapomenout-porozumet.cz.
+  function _gtDomains() {
+    var h = location.hostname;                     // www.nezapomenout-porozumet.cz
+    var root = h.replace(/^www\./, '');            // nezapomenout-porozumet.cz
+    return [h, '.' + h, root, '.' + root];
   }
 
-  // Re-apply cookie from localStorage BEFORE Google Translate initialises
-  (function applyStoredLang() {
-    var lang = localStorage.getItem(_LANG_KEY);
-    if (lang && lang !== 'cs') {
-      document.cookie = 'googtrans=/cs/' + lang + '; path=/';
-      document.cookie = 'googtrans=/cs/' + lang + '; path=/; domain=.' + location.hostname;
-    }
-  })();
+  function _clearGTCookie() {
+    var exp = '; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
+    document.cookie = 'googtrans=' + exp;          // no domain (current host)
+    _gtDomains().forEach(function(d) {
+      document.cookie = 'googtrans=' + exp + '; domain=' + d;
+    });
+  }
 
-  // Highlight active button & show notice
-  (function initLangUI() {
-    var lang = getLang();
+  function _setGTCookie(lang) {
+    var val = '/cs/' + lang;
+    document.cookie = 'googtrans=' + val + '; path=/';
+    _gtDomains().forEach(function(d) {
+      document.cookie = 'googtrans=' + val + '; path=/; domain=' + d;
+    });
+  }
+
+  function _updateLangUI(lang) {
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
-    if (lang !== 'cs') {
-      var notice = document.getElementById('mt-notice');
-      if (notice) notice.classList.add('visible');
+    var notice = document.getElementById('mt-notice');
+    if (notice) notice.classList.toggle('visible', lang !== 'cs');
+  }
+
+  function setLang(lang) {
+    // Persist preference
+    if (lang === 'cs') {
+      localStorage.removeItem(_LANG_KEY);
+      _clearGTCookie();
+    } else {
+      localStorage.setItem(_LANG_KEY, lang);
+      _setGTCookie(lang);
+    }
+
+    // Prefer combo-select manipulation (no page reload, instant switch).
+    // Falls back to reload if GT hasn't initialised yet.
+    var select = document.querySelector('select.goog-te-combo');
+    if (select) {
+      select.value = (lang === 'cs') ? '' : lang;
+      var evt = document.createEvent('HTMLEvents');
+      evt.initEvent('change', false, true);
+      select.dispatchEvent(evt);
+      _updateLangUI(lang);
+    } else {
+      location.reload();
+    }
+  }
+
+  // Set cookie from localStorage BEFORE GT script initialises so it picks up
+  // the correct language on every page load.
+  (function applyStoredLang() {
+    var lang = localStorage.getItem(_LANG_KEY);
+    if (lang && lang !== 'cs') {
+      _setGTCookie(lang);
     }
   })();
 
-  // Event delegation — useCapture so clicks reach us even if GT rewrites the button DOM
+  // Reflect current preference in UI on load
+  _updateLangUI(getLang());
+
+  // Event delegation — useCapture survives GT DOM rewrites
   document.addEventListener('click', function(e) {
     var btn = e.target && e.target.closest && e.target.closest('.lang-btn');
     if (btn && btn.dataset && btn.dataset.lang) {
