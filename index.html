@@ -202,9 +202,9 @@
         <button class="nav-btn" onclick="navigate('sources')" id="nav-sources">Zdroje</button>
         <button class="nav-btn" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfh30Fh0s0YwmqB8m06piKh3JcRS87k5-leo4kd4xmREyn_Hg/viewform','_blank')" id="nav-feedback">Zpětná vazba</button>
         <div class="lang-switcher" translate="no">
-          <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CZ</button>
-          <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-          <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+          <button class="lang-btn" data-lang="cs">CZ</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="de">DE</button>
         </div>
       </div>
       <button id="nav-hamburger" onclick="toggleNavMenu()" aria-label="Menu">☰</button>
@@ -218,9 +218,9 @@
       <button id="nav-feedback-m" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSfh30Fh0s0YwmqB8m06piKh3JcRS87k5-leo4kd4xmREyn_Hg/viewform','_blank');toggleNavMenu()">Zpětná vazba</button>
       <div style="padding:0.55rem 1.25rem;border-top:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:0.3rem" translate="no">
         <span style="font-size:0.68rem;color:#4b5563;margin-right:0.3rem;font-family:'Inter',sans-serif">Jazyk:</span>
-        <button class="lang-btn" data-lang="cs" onclick="setLang('cs')">CZ</button>
-        <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
-        <button class="lang-btn" data-lang="de" onclick="setLang('de')">DE</button>
+        <button class="lang-btn" data-lang="cs">CZ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="de">DE</button>
       </div>
     </div>
   </nav>
@@ -893,32 +893,59 @@
   }
 
   // ===================== LANGUAGE / TRANSLATION =====================
+  var _LANG_KEY = 't4-lang';
+
   function getLang() {
-    const m = document.cookie.match(/googtrans=\/cs\/(\w+)/);
-    return m ? m[1] : 'cs';
+    return localStorage.getItem(_LANG_KEY) || 'cs';
   }
+
   function setLang(lang) {
-    const expired = '; expires=' + new Date(0).toUTCString();
+    var expired = '; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/';
     if (lang === 'cs') {
-      document.cookie = 'googtrans=' + expired + '; path=/';
-      document.cookie = 'googtrans=' + expired + '; path=/; domain=.' + location.hostname;
+      localStorage.removeItem(_LANG_KEY);
+      // Clear cookie for all possible domain variants
+      document.cookie = 'googtrans=' + expired;
+      document.cookie = 'googtrans=' + expired + '; domain=' + location.hostname;
+      document.cookie = 'googtrans=' + expired + '; domain=.' + location.hostname;
     } else {
-      const val = '/cs/' + lang;
+      localStorage.setItem(_LANG_KEY, lang);
+      var val = '/cs/' + lang;
       document.cookie = 'googtrans=' + val + '; path=/';
       document.cookie = 'googtrans=' + val + '; path=/; domain=.' + location.hostname;
     }
     location.reload();
   }
+
+  // Re-apply cookie from localStorage BEFORE Google Translate initialises
+  (function applyStoredLang() {
+    var lang = localStorage.getItem(_LANG_KEY);
+    if (lang && lang !== 'cs') {
+      document.cookie = 'googtrans=/cs/' + lang + '; path=/';
+      document.cookie = 'googtrans=/cs/' + lang + '; path=/; domain=.' + location.hostname;
+    }
+  })();
+
+  // Highlight active button & show notice
   (function initLangUI() {
-    const lang = getLang();
+    var lang = getLang();
     document.querySelectorAll('.lang-btn').forEach(function(btn) {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
     if (lang !== 'cs') {
-      const notice = document.getElementById('mt-notice');
+      var notice = document.getElementById('mt-notice');
       if (notice) notice.classList.add('visible');
     }
   })();
+
+  // Event delegation — useCapture so clicks reach us even if GT rewrites the button DOM
+  document.addEventListener('click', function(e) {
+    var btn = e.target && e.target.closest && e.target.closest('.lang-btn');
+    if (btn && btn.dataset && btn.dataset.lang) {
+      e.preventDefault();
+      e.stopPropagation();
+      setLang(btn.dataset.lang);
+    }
+  }, true);
 
   // ===================== INIT =====================
   loadState();
