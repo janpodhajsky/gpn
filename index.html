@@ -187,7 +187,7 @@
     .goog-te-banner-frame { display: none !important; }
     #goog-gt-tt { display: none !important; }
     .goog-tooltip, .goog-tooltip-content { display: none !important; }
-    body { top: 0 !important; }
+    body { top: 0 !important; margin-top: 0 !important; }
 
   </style>
 </head>
@@ -968,6 +968,44 @@
 
   // Reflect current preference in UI on load
   _updateLangUI(getLang());
+
+  // Once GT combo-select exists: (a) kill toolbar aggressively,
+  // (b) sync our UI if GT changes language independently (e.g. "Show original").
+  function _onGTReady(combo) {
+    // Kill toolbar: hide iframe + strip inline margin-top GT adds to <body>
+    function _killBar() {
+      var f = document.querySelector('.goog-te-banner-frame');
+      if (f) { f.style.cssText = 'display:none!important'; }
+      document.body.style.removeProperty('top');
+      document.body.style.removeProperty('margin-top');
+    }
+    _killBar();
+    // Watch for future toolbar insertions (GT re-inserts it on language switch)
+    new MutationObserver(_killBar).observe(document.body, { childList: true });
+
+    // Sync UI when GT changes language without our buttons (e.g. "Show original")
+    combo.addEventListener('change', function() {
+      var lang = combo.value || 'cs';
+      var current = getLang();
+      if (lang === current) return; // we triggered this change ourselves
+      if (lang === '' || lang === 'cs') {
+        localStorage.removeItem(_LANG_KEY);
+        _clearGTCookie();
+        _updateLangUI('cs');
+      } else {
+        localStorage.setItem(_LANG_KEY, lang);
+        _setGTCookie(lang);
+        _updateLangUI(lang);
+      }
+    });
+  }
+
+  // Poll until GT inserts its combo-select (async script load)
+  (function _waitForGT() {
+    var combo = document.querySelector('select.goog-te-combo');
+    if (combo) { _onGTReady(combo); }
+    else { setTimeout(_waitForGT, 400); }
+  })();
 
   // Event delegation — useCapture survives GT DOM rewrites
   document.addEventListener('click', function(e) {
