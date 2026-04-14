@@ -669,7 +669,7 @@
         <button onclick="toggleSidebar()" style="background:rgba(234,179,8,0.1);border:1px solid rgba(234,179,8,0.3);border-radius:6px;padding:0.4rem 0.75rem;color:#EAB308;cursor:pointer;font-family:'Inter',sans-serif;font-size:0.8rem">☰ Kapitoly</button>
         <span style="font-size:0.85rem;color:#9ca3af" id="mobile-ch-title">${CHAPTERS[state.chapter].title}</span>
       </div>
-      <div style="display:flex;min-height:calc(100vh - 60px)">
+      <div style="display:flex;min-height:calc(100vh - 60px);max-width:1040px;margin:0 auto;width:100%">
         <aside id="sidebar" style="width:240px;flex-shrink:0;background:#111;border-right:1px solid rgba(255,255,255,0.06);position:sticky;top:60px;height:calc(100vh - 60px);overflow-y:auto;padding:1.25rem 0">
           <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:#4b5563;padding:0 1rem;margin-bottom:0.75rem">Kapitoly</p>
           ${CHAPTERS.map((ch,i)=>{const pc=ch.pages&&ch.pages.length>1?ch.pages.length:0;return`<div class="chapter-nav-item ${i===state.chapter?'active':''}" onclick="setChapter(${i})"><span style="font-size:0.72rem;color:#4b5563;margin-right:0.35rem">${i+1}.</span>${ch.title}${pc?`<span style="display:inline-block;margin-left:0.4rem;font-size:0.65rem;color:#6b7280;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:4px;padding:0 0.3rem;vertical-align:middle">${pc} části</span>`:''}</div>`;}).join('')}
