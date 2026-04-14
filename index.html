@@ -183,11 +183,29 @@
     }
     #mt-notice.visible { display: block; }
 
-    /* ---- Suppress Google Translate default toolbar ---- */
-    .goog-te-banner-frame { display: none !important; }
+    /* ---- Google Translate toolbar: let it show, shift layout below it ---- */
     #goog-gt-tt { display: none !important; }
     .goog-tooltip, .goog-tooltip-content { display: none !important; }
-    body { top: 0 !important; margin-top: 0 !important; }
+
+    /* GT adds .translated-ltr to <html> when active — push sticky elements down */
+    html.translated-ltr nav, html.translated-rtl nav { top: 40px !important; }
+    html.translated-ltr #nav-dropdown,
+    html.translated-rtl #nav-dropdown { top: 100px !important; }
+    /* Desktop brochure sidebar */
+    html.translated-ltr #sidebar,
+    html.translated-rtl #sidebar {
+      top: 100px !important;
+      height: calc(100vh - 100px) !important;
+    }
+    @media (max-width: 768px) {
+      html.translated-ltr #sidebar.open,
+      html.translated-rtl #sidebar.open {
+        top: 100px !important;
+        height: calc(100vh - 100px) !important;
+      }
+      html.translated-ltr #sidebar-overlay,
+      html.translated-rtl #sidebar-overlay { top: 100px !important; }
+    }
 
   </style>
 </head>
@@ -963,33 +981,6 @@
   // Once GT combo-select exists: (a) kill toolbar aggressively,
   // (b) sync our UI if GT changes language independently (e.g. "Show original").
   function _onGTReady(combo) {
-    // Kill toolbar: use setProperty('important') to beat GT's inline styles,
-    // strip body offsets GT injects, and watch both body children and the
-    // iframe's own style attribute so it can't re-show itself.
-    function _killBar() {
-      var f = document.querySelector('.goog-te-banner-frame');
-      if (f) {
-        f.style.setProperty('display', 'none', 'important');
-        f.style.setProperty('visibility', 'hidden', 'important');
-        f.style.setProperty('height', '0', 'important');
-      }
-      document.body.style.removeProperty('top');
-      document.body.style.removeProperty('margin-top');
-    }
-    _killBar();
-    // Watch for toolbar insertion into body
-    new MutationObserver(function(ms) {
-      ms.forEach(function(m) {
-        m.addedNodes.forEach(function(n) {
-          if (n.classList && n.classList.contains('goog-te-banner-frame')) {
-            _killBar();
-            // Also watch this specific node's style attribute
-            new MutationObserver(_killBar).observe(n, { attributes: true, attributeFilter: ['style'] });
-          }
-        });
-      });
-    }).observe(document.body, { childList: true });
-
     // Sync UI when GT changes language without our buttons (e.g. "Show original")
     combo.addEventListener('change', function() {
       var lang = combo.value || 'cs';
